@@ -54,6 +54,6 @@ function calc(chg) {
         document.getElementById("t"+i).setAttribute("y", y-20*screenh);
         document.getElementById("t"+i).setAttribute("x", x+10*screenw);
         document.getElementById("t"+i).setAttribute("fonts", "font-size:"+Math.round(fonts)+"px")
-        document.getElementById("t"+i).innerHTML=zahlen[i];               
+        document.getElementById("t"+i).innerHTML=zahlen[i];
     }
 }

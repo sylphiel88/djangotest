@@ -30,6 +30,7 @@
                         <li><a href="{% url 'projects' %}" class="white-text">js-Demos</a></li>
                         <li><a href="#" class="white-text">Videos</a></li>
                         <li> <a data-fancybox data-type="iframe" data-src="{% static 'bewertung.html' %}" href="javascript:;">Bewerten!</a></li>
+                        <li><div class="color-picker"><input type="color" id="picker" onchange="changeColor(this.value)"></div></li>
                     </ul>
                 </div>
             </div>
@@ -47,6 +48,8 @@
         <li><a href="{% url 'projects' %}" class="white-text">js-Demos</a></li>
         <li><a href="#" class="white-text">Videos</a></li>
         <li><a href="#" class="white-text">Bewerten!</a></li>
+        <div class="row center-align color-picker"><input type="color" id="picker" onchange="changeColor(this.value)"></div>
+        <div class="row"></div>
         <div class="card green">
             <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" src="{% static 'pics/jan.jpg' %}">
@@ -130,6 +133,14 @@
             </div>
         </div>
         <div class="contwrapper">
+            <script type="text/javascript">
+                function changeColor(color) {
+                    var elements = document.getElementsByClassName("green");
+                    Array.prototype.forEach.call(elements, function(el) {
+                    el.setAttribute("style", "background-color:"+color+" !important")
+                    });
+                };
+            </script>
             {% block content %}
 
             {% endblock %}

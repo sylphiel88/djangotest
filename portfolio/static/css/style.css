@@ -205,8 +205,15 @@ li:hover {  /*Hover Farbe der "normalen" Menüpunkte */
     font-size: 2em;
 }
 
+.color-picker {
+    display: block;
+}
+
 
 @media (min-width: 62em) {
+    .color-picker{
+        float: right;
+    }
     .footer-2 {
         font-size: 1em;
     }
