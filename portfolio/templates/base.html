@@ -1,0 +1,125 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width={device-width}, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.fancybox.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="dropdown1" class="dropdown-content green white-text">
+        <li><a href="#" class="white-text">Über mich!</a></li>
+        <li><a href="#" class="white-text">Werdegang</a></li>
+        <li><a href="#" class="white-text">Wünsche und Ziele</a></li>
+    </ul>
+<!-- fixed navbar (always on top) -->
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper green">
+                <div class="container">
+                    <a href="{% url 'home' %}" class="brand-logo">Jan Ihmels</a>
+                    <a href="#" class="sidenav-trigger left" data-target="slide-out"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="#" class="dropdown-trigger white-text" data-target="dropdown1">Das bin ich.<i class="material-icons right white-text">arrow_drop_down</i></a></li>
+                        <li><a href="{% url 'projects' %}" class="white-text">js-Demos</a></li>
+                        <li><a href="#" class="white-text">Videos</a></li>
+                        <li> <a data-fancybox data-type="iframe" data-src="{% static 'bewertung.html' %}" href="javascript:;">Bewerten!</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div> 
+<!-- dropdown menu sidebar -->
+    <ul id="dropdown2" class="dropdown-content green white-text">
+        <li><a href="#" class="white-text">Über mich!</a></li>
+        <li><a href="#" class="white-text">Werdegang</a></li>
+        <li><a href="#" class="white-text">Wünsche und Ziele</a></li>
+    </ul>
+<!-- sidebar for smaller screens -->
+    <ul class="sidenav green" id="slide-out">
+        <li><a href="#" class="dropdown-trigger white-text" data-target="dropdown2">Das bin ich<i class="material-icons right white-text">arrow_drop_down</i></a></li>
+        <li><a href="{% url 'projects' %}" class="white-text">js-Demos</a></li>
+        <li><a href="#" class="white-text">Videos</a></li>
+        <li><a href="#" class="white-text">Bewerten!</a></li>
+    </ul>
+    <div class="wrapper">
+        <div class="leftbar green">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{% static 'pics/jan.jpg' %}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Bewerbungsbild<i class="material-icons right">more_vert</i></span>
+                    <p><a href="#"><span class="green-text">Projekt Webseite</span></a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Jan Ihmels<i class="material-icons right">close</i></span>
+                    <p>Alter: 33 <br/> Ausbildung: IT - FIA <br/> Wohnhaft in: Esslingen <br/><br/> Ihr neuer Mitarbeiter?</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{% static 'pics/jan.jpg' %}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Projekt RubixCube<i class="material-icons right">more_vert</i></span>
+                    <p><a href="#"><span class="green-text">RubixCube Demo</span></a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">RubixCube<i class="material-icons right">close</i></span>
+                    <p>Unity Projekt: Realistische Darstellung eines RubixCube in Unity, mit Bedienbarkeit auf dem Handy</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light responsive-img">
+                    <img class="activator" src="{% static 'pics/jan.jpg' %}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Projekt MaxIT<i class="material-icons right">more_vert</i></span>
+                    <p><a href="#"><span class="green-text">MaxIt Demo</span></a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">MaxIt<i class="material-icons right">close</i></span>
+                    <p>Unity Projekt: Umsetzung eines alten Dos-Spiels für Android</p>
+                </div>
+            </div>
+        </div>
+        <div class="contwrapper">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+    <div class="footer">
+        <div id="button"></div>
+        <div id="container">
+            <div id="cont">
+            <div class="footer_center grey-text text-lighten-3">
+	            <div class="row">
+                    <div class="col l12 s12">
+                        <h2 class="white-text footer-1">Janana</h2>
+                        <p class="grey-text text-lighten-3"><h5 class="footer-2">Diese Webseite dient der Vorstellung meiner Person für Firmen, bei denen ich mich bewerben möchte. Es soll meine Fähigkeiten mit HTML, CSS, Django, Java-Script und nginx Servern unterstreichen.</h5></p>
+                    </div>
+                </div>
+                <div class="row footer-copyright">
+                    <div class="container">
+                        © 2021 Jan Ihmels, Hellerweg 51, 73728 Esslingen &nbsp;&nbsp;| &nbsp;&nbsp; enstanden für das Berufsförderwerk Schömberg, Steinbeisstraße 30, 71272 Renningen
+                        <a class="grey-text text-lighten-5 right" href="https://www.bfw-schoemberg.de"> BfW Schömberg</a><br/>
+                        <a class="grey-text text-lighten-5 right" href="sites/impressum.html">Impressum </a>
+                    </div>
+                </div>
+                <div class="row footer-copyright"></div>
+            </div>
+        </div>
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script src="{% static 'js/jquery.fancybox.js' %}"></script>
+    <script src="{% static 'js/start.js' %}"></script>
+</body>
+</html>

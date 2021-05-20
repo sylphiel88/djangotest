@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block  content %}
+<div class="row"></div>
+<div class="row">
+    <div class="col l10 m10 s10"> Klicken Sie auf eines der Projekte, um es auszuprobieren.</div>
+</div>
+<div class="row">
+    <div class="col l3 m5 s10 floatd">
+        <a data-fancybox="Demos" data-type="iframe" data-src="{% static 'ggt.html' %}" href="javascript:;"><img src="{%static 'pics/ggt.jpg'%}" class="proimg responsive-img"/></a>
+    </div>
+    <div class="col l3 m5 s10 floatd">
+        <a data-fancybox="Demos" data-type="iframe" data-src="{% static 'primfaktor.html' %}" href="javascript:;"><img src="{% static 'pics/pfz.png' %}" class="proimg responsive-img"/></a>
+    </div>
+    <div class="col l3 m5 s10 floatd">
+        <a data-fancybox="Demos" data-type="iframe" data-src="{% static 'calc.html' %}" href="javascript:;"><img src="{% static 'pics/calc.png' %}" class="proimg responsive-img"/></a>
+    </div>
+</div>
+<div class="row">
+    <div class="col l3 m5 s10 floatd">
+        <a data-fancybox="Demos" data-type="iframe" data-src="{% static 'chart.html' %}" href="javascript:;"><img src="{% static 'pics/chart.png' %}" class="proimg responsive-img"/></a>
+    </div>
+    <div class="col l3 m5 s10 floatd">
+        <a data-fancybox="Demos" data-type="iframe" data-src="{% static 'primfaktor.html' %}" href="javascript:;"><img src="{% static 'pics/ggt.jpg' %}" class="proimg responsive-img"/></a>
+    </div>
+    <div class="col l3 m5 s10 floatd">
+        <a data-fancybox="Demos" data-type="iframe" data-src="{% static 'rechner.html' %}" href="javascript:;"><img src="{% static 'pics/ggt.jpg' %}" class="proimg responsive-img"/></a>
+    </div>
+</div>
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'js/materialize.js' %}"></script>
+<script src="{% static 'js/jquery.fancybox.js' %}"></script>
+<script src="{% static 'js/start.js' %}"></script>
+{% endblock %}

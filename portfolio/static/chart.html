@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="css/icon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="center-align"><p><h5>Data Chart</h5></p></div>
+        <div class="row">
+            <div class="col l5 s12 offset-l1">
+                <input id="zahl1" type="range" min="0" max="100" value="100">
+                <Label for="zahl1">Zahl 1</Label>
+            </div>
+            <div class="col l5 s12 offset-l1">
+                <input id="zahl2" type="range" min="0" max="100" value="50">
+                <Label for="zahl2">Zahl 2</Label>    
+            </div>
+        </div>
+        <div class="row">
+            <div class="col l5 s12 offset-l1">
+                <input id="zahl3" type="range" min="0" max="100" value="75">
+                <Label for="zahl3">Zahl 3</Label>    
+            </div>
+            <div class="col l5 s12 offset-l1">
+                <input id="zahl4" type="range" min="0" max="100" value="25">
+                <Label for="zahl4">Zahl 4</Label>    
+            </div>
+        </div>
+        <div class="row svgcontainer">
+            <svg id="svg" height="400" width="600">
+                <line id="line100" x1="20" y1="80" x2="30" y2="80" stroke="black"></line>
+                <line id="line75" x1="20" y1="155" x2="30" y2="155" stroke="black"></line>
+                <line id="line50" x1="20" y1="230" x2="30" y2="230" stroke="black"></line>
+                <line id="line25" x1="20" y1="305" x2="30" y2="305" stroke="black"></line>
+                <line id="line0" x1="20" y1="380" x2="30" y2="380" stroke="black"></line>
+                <text id="text100" x="40" y="85">100</text>
+                <text id="t0" x="185" y="60">100</text>
+                <text id="t1" x="255" y="210">50</text>
+                <text id="t2" x="325" y="135">75</text>
+                <text id="t3" x="395" y="285">25</text>
+                <rect id="rect1" x="170" y="80" height="300" width="50" style="fill:red"></rect>
+                <rect id="rect2" x="240" y="230" height="150" width="50" style="fill:blue"></rect>
+                <rect id="rect3" x="310" y="155" height="225" width="50" style="fill:green"></rect>
+                <rect id="rect4" x="380" y="305" height="75" width="50" style="fill:yellow"></rect>
+            </svg>
+        </div>
+    </div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/chartsetup.js"></script>
+    <script src="js/chart.js"></script>
+</body>
+</html>
