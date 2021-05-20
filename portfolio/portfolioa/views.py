@@ -3,8 +3,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 def home(request):
-    zahl = 2 + 6
-    return render(request, 'home.html', {'name':zahl})
+    return render(request, 'home.html', {'name':'Jan'})
 
 def projects(request):
     return render(request, 'projects.html')
