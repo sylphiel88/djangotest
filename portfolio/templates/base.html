@@ -13,6 +13,18 @@
     <title>Document</title>
 </head>
 <body>
+    <style>
+        .green {background-color: {{color}} !important;}
+        .green2 {background-color: {{color2}} !important;}
+        li:hover {background-color: {{color2}} !important;}
+        .dropdown-content > li:hover {background-color: {{color2}} !important;}
+        .button {background-color: {{color2}};}
+        .footer #button{border:{{color}} 12px solid};
+        .footer #button:hover{border: {{color2}} 12px solid;}
+        .footer #container{background: {{color}}; opacity: 0.8;}
+        .footer-copyright {background-color: {{color2}}; opacity: 0.8;}
+    </style>
+
     <ul id="dropdown1" class="dropdown-content green white-text">
         <li><a href="#" class="white-text">Über mich!</a></li>
         <li><a href="#" class="white-text">Werdegang</a></li>
@@ -30,12 +42,12 @@
                         <li><a href="{% url 'projects' %}" class="white-text">js-Demos</a></li>
                         <li><a href="#" class="white-text">Videos</a></li>
                         <li> <a data-fancybox data-type="iframe" data-src="{% static 'bewertung.html' %}" href="javascript:;">Bewerten!</a></li>
-                        <li><div class="color-picker"><input type="color" id="picker" onchange="changeColor(this.value)"></div></li>
+                        <li><div class="color-picker"><input type="color" id="picker" value="{{color}}" onchange="changeColor(this.value)"></div></li>
                     </ul>
                 </div>
             </div>
         </nav>
-    </div> 
+    </div>
 <!-- dropdown menu sidebar -->
     <ul id="dropdown2" class="dropdown-content green white-text">
         <li><a href="#" class="white-text">Über mich!</a></li>
@@ -134,11 +146,54 @@
         </div>
         <div class="contwrapper">
             <script type="text/javascript">
+                function getCookie(name) {
+                    var dc = document.cookie;
+                    var prefix = name+"=";
+                    var begin = dc.indexOf("; "+prefix);
+                    console.log(begin);
+                    if(begin== -1) {
+                        begin=dc.indexOf(prefix);
+                        if(begin!=0) return null
+                    }
+                    else {
+                        begin+=2;
+                        var end = document.cookie.indexOf(";",begin);
+                        if(end==-1) {
+                            end = dc.length;
+                        }
+                    }
+                    return decodeURI(dc.substring(begin+prefix.length, end));
+                }
+                
+                var colorc = getCookie("color");
+                var color2c = getCookie("color2");
+                if (colorc == null) {
+                    document.cookie = "color=#9ECC1F";
+                }
+                if (color2c == null) {
+                    document.cookie = "color2=#4F660F";
+                }
+
                 function changeColor(color) {
-                    var elements = document.getElementsByClassName("green");
-                    Array.prototype.forEach.call(elements, function(el) {
-                    el.setAttribute("style", "background-color:"+color+" !important")
-                    });
+                    document.cookie = "color="+color;
+                    var color2=decrease_brightness(color, -0.4);
+                    document.cookie = "color2="+color2;
+                    location.reload();
+                };
+                function decrease_brightness(hex, lum){      
+                    hex = String(hex).replace(/[^0-9a-f]/gi, '');
+                    if (hex.length < 6) {
+                        hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+                    }
+                    lum = lum || 0;
+                    var rgb = "#", c, i;
+                    for (i = 0; i < 3; i++) {
+                        c = parseInt(hex.substr(i*2,2), 16);
+                        c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+                        rgb += ("00"+c).substr(c.length);
+                    }
+
+                    return rgb;        
                 };
             </script>
             {% block content %}
