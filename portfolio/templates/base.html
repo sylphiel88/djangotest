@@ -42,7 +42,7 @@
                         <li><a href="{% url 'projects' %}" class="white-text">js-Demos</a></li>
                         <li><a href="#" class="white-text">Videos</a></li>
                         <li> <a data-fancybox data-type="iframe" data-src="{% static 'bewertung.html' %}" href="javascript:;">Bewerten!</a></li>
-                        <li><div class="color-picker"><input type="color" id="picker" value="{{color}}" onchange="changeColor(this.value)"></div></li>
+                        <li>&nbsp &nbsp Designfarbe: &nbsp <div class="color-picker"><input type="color" id="picker" value="{{color}}" onchange="changeColor(this.value)"></div></li>
                     </ul>
                 </div>
             </div>
@@ -60,7 +60,7 @@
         <li><a href="{% url 'projects' %}" class="white-text">js-Demos</a></li>
         <li><a href="#" class="white-text">Videos</a></li>
         <li><a href="#" class="white-text">Bewerten!</a></li>
-        <div class="row center-align color-picker"><input type="color" id="picker" onchange="changeColor(this.value)"></div>
+        <p class="white-text">&nbsp &nbsp &nbsp &nbspDesignfarbe: &nbsp <div class="row center-align color-picker"><input type="color" id="picker" onchange="changeColor(this.value)"></div></p>
         <div class="row"></div>
         <div class="card green">
             <div class="card-image waves-effect waves-block waves-light">
