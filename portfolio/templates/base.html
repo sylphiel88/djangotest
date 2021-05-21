@@ -37,7 +37,7 @@
             <div class="nav-wrapper green">
                 <div class="container">
                     <a href="{% url 'home' %}" class="brand-logo white-text">Jan Ihmels</a>
-                    <a href="#" class="sidenav-trigger left" data-target="slide-out"><i class="material-icons">menu</i></a>
+                    <a href="#" class="sidenav-trigger left white-text" data-target="slide-out"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="#" class="dropdown-trigger white-text" data-target="dropdown1">Das bin ich.<i class="material-icons right white-text">arrow_drop_down</i></a></li>
                         <li><a href="{% url 'projects' %}" class="white-text">js-Demos</a></li>
@@ -61,7 +61,7 @@
         <li><a href="{% url 'projects' %}" class="white-text">js-Demos</a></li>
         <li><a href="#" class="white-text">Videos</a></li>
         <li><a href="#" class="white-text">Bewerten!</a></li>
-        <p class="white-text">&nbsp &nbsp &nbsp &nbspDesignfarbe: &nbsp <div class="row center-align color-picker"><input type="color" id="picker" onchange="changeColor(this.value)"></div></p>
+        <p class="white-text">&nbsp &nbsp &nbsp &nbspDesignfarbe: &nbsp <div class="row center-align color-picker"><input type="color" id="picker" value="{{color}}" onchange="changeColor(this.value)"></div></p>
         <div class="row"></div>
         <div class="card green">
             <div class="card-image waves-effect waves-block waves-light">
@@ -179,8 +179,8 @@
                     document.cookie = "color="+color;
                     var color2=decrease_brightness(color, -0.4);
                     document.cookie = "color2="+color2;
-                    var invcolor = invertColor(color, true);
-                    document.cookie = "colorbw="+invcolor;
+                    var bwcolor = bwColor(color, true);
+                    document.cookie = "colorbw="+bwcolor;
                     location.reload();
                 };
                 function decrease_brightness(hex, lum){      
@@ -198,33 +198,20 @@
 
                     return rgb;        
                 };
-                function invertColor(hex, bw) {
+                function bwColor(hex, bw) {
                     if (hex.indexOf('#') === 0) {
                         hex = hex.slice(1);
                     }
-                    // convert 3-digit hex to 6-digits.
                     if (hex.length === 3) {
                         hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
-                    }
-                    if (hex.length !== 6) {
-                        throw new Error('Invalid HEX color.');
                     }
                     var r = parseInt(hex.slice(0, 2), 16),
                         g = parseInt(hex.slice(2, 4), 16),
                         b = parseInt(hex.slice(4, 6), 16);
-                    if (bw) {
-                        // http://stackoverflow.com/a/3943023/112731
                         return (r * 0.299 + g * 0.587 + b * 0.114) > 186
                             ? '#000000'
                             : '#FFFFFF';
-                    }
-                    // invert color components
-                    r = (255 - r).toString(16);
-                    g = (255 - g).toString(16);
-                    b = (255 - b).toString(16);
-                    // pad each with zeros and return
-                    return "#" + padZero(r) + padZero(g) + padZero(b);
-}
+                }
             </script>
             {% block content %}
 
