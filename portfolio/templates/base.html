@@ -18,11 +18,12 @@
         .green2 {background-color: {{color2}} !important;}
         li:hover {background-color: {{color2}} !important;}
         .dropdown-content > li:hover {background-color: {{color2}} !important;}
-        .button {background-color: {{color2}};}
+        .button {background-color: {{color}};}
         .footer #button{border:{{color}} 12px solid};
         .footer #button:hover{border: {{color2}} 12px solid;}
         .footer #container{background: {{color}}; opacity: 0.8;}
         .footer-copyright {background-color: {{color2}}; opacity: 0.8;}
+        .white-text {color: {{colorbw}} !important;}
     </style>
 
     <ul id="dropdown1" class="dropdown-content green white-text">
@@ -35,14 +36,14 @@
         <nav>
             <div class="nav-wrapper green">
                 <div class="container">
-                    <a href="{% url 'home' %}" class="brand-logo">Jan Ihmels</a>
+                    <a href="{% url 'home' %}" class="brand-logo white-text">Jan Ihmels</a>
                     <a href="#" class="sidenav-trigger left" data-target="slide-out"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="#" class="dropdown-trigger white-text" data-target="dropdown1">Das bin ich.<i class="material-icons right white-text">arrow_drop_down</i></a></li>
                         <li><a href="{% url 'projects' %}" class="white-text">js-Demos</a></li>
                         <li><a href="#" class="white-text">Videos</a></li>
-                        <li> <a data-fancybox data-type="iframe" data-src="{% static 'bewertung.html' %}" href="javascript:;">Bewerten!</a></li>
-                        <li>&nbsp &nbsp Designfarbe: &nbsp <div class="color-picker"><input type="color" id="picker" value="{{color}}" onchange="changeColor(this.value)"></div></li>
+                        <li><a data-fancybox data-type="iframe" data-src="{% static 'bewertung.html' %}" href="javascript:;" class="white-text">Bewerten!</a></li>
+                        <li class="white-text">&nbsp &nbsp Designfarbe: &nbsp <div class="color-picker"><input type="color" id="picker" value="{{color}}" onchange="changeColor(this.value)"></div></li>
                     </ul>
                 </div>
             </div>
@@ -178,6 +179,8 @@
                     document.cookie = "color="+color;
                     var color2=decrease_brightness(color, -0.4);
                     document.cookie = "color2="+color2;
+                    var invcolor = invertColor(color, true);
+                    document.cookie = "colorbw="+invcolor;
                     location.reload();
                 };
                 function decrease_brightness(hex, lum){      
@@ -195,6 +198,33 @@
 
                     return rgb;        
                 };
+                function invertColor(hex, bw) {
+                    if (hex.indexOf('#') === 0) {
+                        hex = hex.slice(1);
+                    }
+                    // convert 3-digit hex to 6-digits.
+                    if (hex.length === 3) {
+                        hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+                    }
+                    if (hex.length !== 6) {
+                        throw new Error('Invalid HEX color.');
+                    }
+                    var r = parseInt(hex.slice(0, 2), 16),
+                        g = parseInt(hex.slice(2, 4), 16),
+                        b = parseInt(hex.slice(4, 6), 16);
+                    if (bw) {
+                        // http://stackoverflow.com/a/3943023/112731
+                        return (r * 0.299 + g * 0.587 + b * 0.114) > 186
+                            ? '#000000'
+                            : '#FFFFFF';
+                    }
+                    // invert color components
+                    r = (255 - r).toString(16);
+                    g = (255 - g).toString(16);
+                    b = (255 - b).toString(16);
+                    // pad each with zeros and return
+                    return "#" + padZero(r) + padZero(g) + padZero(b);
+}
             </script>
             {% block content %}
 
@@ -205,18 +235,18 @@
         <div id="button"></div>
         <div id="container">
             <div id="cont">
-            <div class="footer_center grey-text text-lighten-3">
+            <div class="footer_center white-text">
 	            <div class="row">
                     <div class="col l12 s12">
                         <h2 class="white-text footer-1">Janana</h2>
-                        <p class="grey-text text-lighten-3"><h5 class="footer-2">Diese Webseite dient der Vorstellung meiner Person für Firmen, bei denen ich mich bewerben möchte. Es soll meine Fähigkeiten mit HTML, CSS, Django, Java-Script und nginx Servern unterstreichen.</h5></p>
+                        <p class="white-text text-darken-3"><h5 class="footer-2">Diese Webseite dient der Vorstellung meiner Person für Firmen, bei denen ich mich bewerben möchte. Es soll meine Fähigkeiten mit HTML, CSS, Django, Java-Script und nginx Servern unterstreichen.</h5></p>
                     </div>
                 </div>
                 <div class="row footer-copyright">
                     <div class="container">
                         © 2021 Jan Ihmels, Hellerweg 51, 73728 Esslingen &nbsp;&nbsp;| &nbsp;&nbsp; enstanden für das Berufsförderwerk Schömberg, Steinbeisstraße 30, 71272 Renningen
-                        <a class="grey-text text-lighten-5 right" href="https://www.bfw-schoemberg.de"> BfW Schömberg</a><br/>
-                        <a class="grey-text text-lighten-5 right" href="sites/impressum.html">Impressum </a>
+                        <a class="white-text right" href="https://www.bfw-schoemberg.de"> BfW Schömberg</a><br/>
+                        <a class="white-text right" href="sites/impressum.html">Impressum </a>
                     </div>
                 </div>
                 <div class="row footer-copyright"></div>
