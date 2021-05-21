@@ -5,7 +5,7 @@
     font-family: 'Bahnschrift', sans-serif;
 }
 
-.green {
+/* .green {
     background-color: rgba(157, 204, 30) !important;
 }
 
@@ -13,22 +13,21 @@
     background-color: rgba(65, 83, 15,0.8) !important;
 }
 
-li:hover {  /*Hover Farbe der "normalen" Menüpunkte */
+li:hover { 
     background-color: rgba(65, 83, 15) !important;
 }
 
-.dropdown-content > li:hover { /* Hover Farbe Dropdown Menü (Aquarien) */
+.dropdown-content > li:hover { 
     background-color: rgb(65, 83, 15) !important;
 }
 
 .button {
     background-color: rgb(65, 83, 15);
-}
+} */
 
 .footer #button{
 	width:35px;
 	height:35px;
-	border: rgb(65, 83, 15) 12px solid;
 	border-radius:35px;
 	margin:0 auto;
 	position:relative;
@@ -41,7 +40,6 @@ li:hover {  /*Hover Farbe der "normalen" Menüpunkte */
 .footer #button:hover{
 	width:35px;
 	height:35px;
-	border: rgb(65, 83, 15) 12px solid;
 	-webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
     -o-transition: all 1s ease;
@@ -79,7 +77,6 @@ li:hover {  /*Hover Farbe der "normalen" Menüpunkte */
     position:relative;
     top:0;
     left:0;
-	background: rgba(157, 204, 30, 0.8)
 }
 .footer #cont{
     position:relative;
@@ -97,7 +94,6 @@ li:hover {  /*Hover Farbe der "normalen" Menüpunkte */
 .footer-copyright {
     margin-left: -15%;
     width: 130%;
-    background-color: rgba(65, 83, 15,0.8);
 }
 
 .footer-2 {
