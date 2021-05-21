@@ -18,6 +18,13 @@ def home(request):
     return render(request, 'home.html', {'name':'Jan', 'color':color, 'color2':color2})
 
 def projects(request):
-    color = request.COOKIES['color']
-    color2 = request.COOKIES['color2']
+    if 'color' in request.COOKIES.keys():
+        color = request.COOKIES['color']
+        color2 = request.COOKIES['color2']
+    else:
+        resp = HttpResponse('')
+        color = '#ff0000'
+        color2 = '#dd0000'
+        resp.set_cookie('color',color)
+        resp.set_cookie('color2',color2)
     return render(request, 'projects.html', {'color':color, 'color2':color2})
