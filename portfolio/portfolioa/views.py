@@ -6,7 +6,7 @@ logger = logging.getLogger(__name__)
 
 # Create your views here.
 def home(request):
-    if 'color' in request.COOKIES.keys():
+    if 'color' in request.COOKIES.keys() and 'color2' in request.COOKIES.keys() and 'colorbw' in request.COOKIES.keys():
         color = request.COOKIES['color']
         color2 = request.COOKIES['color2']
         colorbw = request.COOKIES['colorbw']
