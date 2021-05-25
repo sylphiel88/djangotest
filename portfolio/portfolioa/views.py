@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import redirect
+from .models import bewertung
+from .forms import aqbw
 import logging
 
 logger = logging.getLogger(__name__)
@@ -96,7 +99,33 @@ def aqindex(request):
     return render(request, 'parallaxpics.html', {'color':color, 'color2':color2, 'colorbw':colorbw})
 
 def aqbewe(request):
-    return render(request, 'bewertungaq.html')
+    bws = bewertung.objects.all()
+    i=0
+    sumbw1=0
+    sumbw2=0
+    sumbw3=0
+    for bewertungen in bws:
+        bw1wert = bewertungen.bw1
+        bw2wert = bewertungen.bw2
+        bw3wert = bewertungen.bw3
+        sumbw1 += bw1wert
+        sumbw2 += bw2wert
+        sumbw3 += bw3wert
+        i = i + 1
+    lenbw = len(bws)
+    anmtext = bewertung.objects.get(id=lenbw).anm
+    avgbw1 = round(sumbw1 / i, 1)
+    avgbw2 = round(sumbw2 / i, 1)
+    avgbw3 = round(sumbw3 / i, 1)
+    if request.method == 'POST':
+        sendbw1 = int(request.POST['bw1'])
+        sendbw2 = int(request.POST['bw2'])
+        sendbw3 = int(request.POST['bw3'])
+        sendanm = request.POST['anm']
+        b = bewertung.objects.all().create(bw1=sendbw1, bw2=sendbw2, bw3=sendbw3, anm=sendanm)
+        return redirect('aqbewe')
+    form = aqbw()
+    return render(request, 'bewertungaq.html', {'bw1':avgbw1, 'bw2':avgbw2, 'bw3':avgbw3,'anm':anmtext, 'form':form})
 
 def aquarium1(request):
     return render(request, 'aquarium1.html')
