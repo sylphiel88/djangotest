@@ -85,7 +85,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'aquarium',
-        'USER': 'postgres'
+        'USER': 'postgres',
+        'PASSWORD': 'Ircilv88!',
+        'HOST': 'localhost'
     }
 }
 
