@@ -1,0 +1,90 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block indexicon%}
+<li><a href="{%url 'aquarium'%}" class="white-text"><i class="material-icons center white-text">home</i></a></li>
+{%endblock%}
+
+{% block indexicon1%}
+<li><a href="{%url 'aquarium'%}" class="white-text"><i class="material-icons center white-text">home</i>Startseite</a></li>
+{%endblock%}
+
+{% block aqcontent %}
+    <div class="container black white-text">
+        <div class="row"></div>
+        <div class="row">
+            <div class="col s2 offset-s10">
+                <div class="valign-wrapper center-align">
+                    <span class="bw">Ø</span>
+                </div>
+            </div>
+        </div>
+        <form id="myForm" name="myForm">
+            <!-- question one and output avrage of all database entries in column rating1 -->    
+            <div class="row">
+                <div class="col s6">
+                    <p class="bw">Wie gefällt Ihnen die Webseite?</p>
+                </div>
+                <div class="col s4">
+                    <p class="range-field bw">
+                        <input type="range" id="rating1" min="1" max="10" />
+                    </p>
+                </div>
+                <div class="col s2">
+                    <p class="bw" id="arating1"><?php echo $avr1 ?></p>
+                </div>
+            </div>
+            <!-- question two and output avrage of all database entries in column rating2 -->
+            <div class="row">
+                <div class="col s6">
+                    <p class="bw">Würden Sie die Seite weiterempfehlen?</p>
+                </div>
+                <div class="col s4">
+                    <p class="range-field bw">
+                        <input type="range" id="rating2" min="1" max="10" />
+                    </p>
+                </div>
+                <div class="col s2">
+                    <p class="bw" id="arating2"><?php echo $avr2 ?></p>
+                </div>
+            </div>
+            <!-- question three and output avrage of all database entries in column rating1 -->
+            <div class="row">
+                <div class="col s6">
+                    <p class="bw">Wie gefällt Ihnen das Design?</p>
+                </div>
+                <div class="col s4">
+                    <p class="range-field bw">
+                        <input type="range" id="rating3" min="1" max="10" />
+                    </p>
+                </div>
+                <div class="col s2">
+                    <p class="bw" id="arating"><?php echo $avr3 ?></p>
+                </div>
+            </div>
+            <!-- annotation msg and output of last msg -->
+            <div class="row">
+                <p class="col s12 bw">Haben Sie Anregungen? Die letzte Anwort war: <span class="blue"><?php echo $msg['anmerkung'] ?></span></p>
+            </div>
+
+            <div class="row">
+                <div class="row">
+                    <div class="input-field col s12 white-text">
+                        <textarea id="textarea1" class="materialize-textarea white-text"></textarea>
+                        <label for="textarea1">Anregungen?</label>
+                    </div>
+                </div>
+            </div>
+            <!-- submit button --> 
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button class="btn waves-effect waves-light blue" type="submit" name="action" id="submit">Abschicken
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <div class="row"></div>
+        <div class="row"></div>
+    </div>
+{% endblock %}

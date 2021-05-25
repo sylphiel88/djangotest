@@ -1,0 +1,461 @@
+*{
+  font-family: 'Baumans', cursive; /* Schriftart für die ganze Seite */
+ }
+
+.blue {
+  background-color : rgb(0, 155, 226); /* Design Farbe 1*/
+}
+.blue2 {
+  background-color : rgb(16, 77, 105); /* Design Farbe 2*/
+}
+.all {
+  background-color: black; /* Design Background */
+}
+.parallax-container { /* Höhe der Parallaxen Container */
+  height: 25em
+}
+.aq1 { /* Abstand nach unten nach den Parallaxen Bildern */
+  margin-bottom: 3em;
+}
+.parallax-text {  /* Überschriften auf den Parallaxen Bildern */
+  text-shadow: 0.1em 0.1em 0.1em rgb(16, 77, 105);
+  color:rgb(0, 155, 226);
+}
+
+.demo {
+  height: 62vh !important; /* unwichtig, war nur für die Powerpoint */
+}
+.normalertext {
+  font-size: 2em; /* Schriftgröße des Index-Textes */
+}
+
+.brand-logo { /* Farbe des Logos */
+  color : antiquewhite; 
+} 
+
+
+.dropdown-content > li:hover { /* Hover Farbe Dropdown Menü (Aquarien) */
+  background-color: rgb(0, 155, 226);
+}
+li:hover {  /*Hover Farbe der "normalen" Menüpunkte */
+  background-color: rgb(16, 77, 105);
+}
+.dropdown-content > li > a:hover, .dropdown-menu > li > a:focus { /* Die beiden sind für das Dropdown menü im Responiven Hamburger Menü */
+  background-image:none !important;
+}
+.dropdown-content > li > a:hover, .dropdown-menu > li > a:focus {
+  background-color:rgb(0, 155, 226);
+}
+
+.bl-sm { /* verkleinerung der Seitenüberschrift beim 180l Aquarium. */
+  font-size: 0.8em;
+}
+
+input[type=range]::-webkit-slider-runnable-track { /* Kommende Anweisungen geben die Design Farben an das Bewerten Formular und seine Elemente */
+  background-color: rgb(0, 155, 226);
+  box-shadow: 0 1px 0 0 rgb(16, 77, 105)
+}
+
+input[type=range]::-webkit-slider-thumb {
+  background-color:rgb(16, 77, 105);
+}
+
+input[type=range]+.thumb{
+  background-color: rgb(16, 77, 105);
+}
+
+.input-field textarea:focus + label {
+  color: rgb(0, 155, 226) !important;
+}
+
+.row .input-field textarea:focus {
+  border-bottom: 1px solid rgb(0, 155, 226)!important;
+  box-shadow: 0 1px 0 0 rgb(0, 155, 226) !important;
+}
+
+.cropped { /* Schneidet die Bilder der Cards zu.*/
+  position: relative;
+  width: 50%;
+}
+
+.fancybox-nav {       /* Design auf die fancybox übertragen */
+  position: absolute;
+  top: 0;
+  width: 25%;
+  height: 100%;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.fancybox-prev {
+  left: 0;
+}
+
+.fancybox-next {
+  right: 0;
+}
+
+.fancybox-nav span {
+  position: absolute;
+  top: 50%;
+  width: 36px;
+  height: 34px;
+  margin-top: -18px;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.fancybox-prev span, .fancybox-next span {
+  background-image : url(../pics/fancybox_sprite.png);
+  opacity: 50%;
+}
+
+.fancybox-prev span {
+  left: 0px;
+  background-position: 0 -36px;
+}
+
+.fancybox-next span {
+  right: 10px;
+  background-position: 0 -72px;
+}
+
+.fancybox-nav:hover span {
+  visibility: visible;
+}
+
+.fancybox-close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 36px;
+  height: 36px;
+  background-image: url(../pics/fancybox_sprite.png);
+  opacity: 50%;
+  z-index: 2;
+}
+
+.cropped:after {
+  content: "";
+  display: block;
+}
+
+.imgcenter {  /* Zentriert die Bilder der Aquariumcards */
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.cardtextsize { /* Schriftgröße der Aquariumkarten auf Mobiltelefonen */
+  font-size: 0.75em;
+}
+
+.centert { /* zentriert die Karten ansich */
+  display: flex !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+}
+
+.pfl-nm { /* Kursiv für wissenschaftliche Namen */
+  font-style: italic;
+}
+ 
+.bw{ /* Schriftgröße für die Bewerten Texte */
+  font-size: 1.4em;
+}
+ .technik {       /* fixiert das Schematische Technik Bild */
+   position: fixed;
+ }
+
+ .technik-container {  /* Höhe des Kontainers für das Technik Bild */
+   height: 140vh !important;
+}
+
+.gallery {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.gallery a {
+  width: 100%;
+  height: auto;
+  float: left;
+  overflow: hidden;
+}
+.gallery a img {
+  width: 100%;
+}
+
+.technik-text {  /* Textboxen der Hover Informationen */
+  background-color: rgb(0, 155, 226);
+  outline:1px solid white;
+  position: absolute;
+  width: 60%;
+  height: auto;
+  left: 17%;
+  top: 14%;
+  z-index: 6;
+  display: none;
+  font-size: 0.8em;
+}
+
+.technik-p {  /* Absatzformatierung für die Infotexte */
+  margin: 3px;
+  font-size: 1.4em;
+}
+
+p.technik-p {
+  font-size: 1em;
+}
+
+.btn-small { /* Größe der Buttons auf Mobilgeräten */
+  width: 10px !important;
+  height: 10px !important;
+}
+
+i.resp-icon { /* Farbe des Icons auf Mobilgeräten (Gleich wie der Button -> unsichtbar) */
+  color:rgb(0, 155, 226);
+}
+
+.technik-btn-1 {  /* Für jeden Button 2 Klassen, eine für die Position des Buttons und eine für den Hoverblock */
+  position: absolute;
+  top: 5%;
+  left: 0%;
+}
+
+
+.technik-btn-1:hover + .technik-text {
+  display: block;
+  position: absolute;
+ }
+
+
+.technik-btn-2 {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+}
+
+.technik-btn-2:hover + .technik-text {
+  display: block;
+  position: absolute;
+ }
+
+ .technik-btn-3 {
+  position: absolute;
+  top: 68%;
+  left: 30%;
+}
+
+.technik-btn-3:hover + .technik-text {
+  display: block;
+  position: absolute;
+ }
+
+ .technik-btn-4 {
+  position: absolute;
+  top: 75%;
+  left: 30%;
+}
+
+
+.technik-btn-4:hover + .technik-text {
+  display: block;
+  position: absolute;
+ }
+ .technik-btn-5 {
+  position: absolute;
+  top: 82%;
+  left: 30%;
+}
+
+.technik-btn-5:hover + .technik-text {
+  display: block;
+  position: absolute;
+ }
+
+ .technik-btn-6 {
+  position: absolute;
+  top: 12%;
+  left: 0%;
+}
+
+.technik-btn-6:hover + .technik-text {
+  display: block;
+  position: absolute;
+ }
+
+ .technik-btn-7 {
+  position: absolute;
+  top: 19%;
+  left: 0%;
+}
+
+.technik-btn-7:hover + .technik-text {
+  display: block;
+  position: absolute;
+ }
+ 
+ .technik-btn-8 {
+  position: absolute;
+  top: 11%;
+  left: 32%;
+}
+
+.technik-btn-8:hover + .technik-text {
+  display: block;
+  position: absolute;
+ }
+
+ .technik-btn-9 {
+  position: absolute;
+  top: 50%;
+  left: 39%;
+}
+
+.technik-btn-9:hover + .technik-text {
+  display: block;
+  position: absolute;
+ }
+
+ .technik-btn-10 {
+  position: absolute;
+  top: 1%;
+  left: 45%;
+}
+
+.technik-btn-10:hover + .technik-text {
+  display: block;
+  position: absolute;
+ }
+
+ .technik-btn-11 {
+  position: absolute;
+  top: 40%;
+  left: 84%;
+}
+
+.technik-btn-11:hover + .technik-text {
+  display: block;
+  position: absolute;
+ }
+
+ .technik-btn-12 {
+  position: absolute;
+  top: 48%;
+  left: 74%;
+}
+
+.technik-btn-12:hover + .technik-text {
+  display: block;
+  position: absolute;
+ }
+
+.page-footer-fixed { /* Footer ist auf Technikseite Fixiert */
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.page-footer { /* Footer hat kleinere Schrift auf Mobilgeräten */
+  font-size: 0.7em;
+}
+h5.footer-1 {
+  font-size: 1em;
+}
+h2.footer-1 {
+  font-size: 1.3em
+}
+
+.logos { /* Instagram und Facebooklink meines Fotografen */
+  display: inline-block;
+  height: 1em;
+  margin-left: 1em;
+  width: auto;
+}
+
+.logo-text {
+  display: inline-block;
+  color:rgb(255, 255, 255);
+  line-height: normal;
+  vertical-align: middle;
+  font-size: 1.5em;
+}
+
+.weißer-text {
+  color: white;
+}
+
+@media(min-width: 35em) {
+  .bl-sm {
+    font-size: 1em; /* Auf größeren Geräten lässt sich die Überschrift des 180l Aquariums normal darstellen */
+  }
+  .cropped { /*die Bilderzuschnitte passen besser */
+    height: 20vw;
+    width: 20vw;
+    overflow: hidden;
+    border: none;
+  }
+  .cardtextsize { /*der Text auf den Karten für die Aquariuen kann größer gemacht werden */
+    font-size: 1.2em;
+  }
+  .btn-small { /* und die Technikbuttons ebenfalls ein bisschen */
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .gallery a {
+    width: 49%;
+  }
+}
+
+@media(min-width: 50em) {
+
+  .cardtextsize { /* Größerer Text auf den Cards */
+    font-size: 1.5em;
+  }
+
+  .btn-small { /* größere Technikbuttons */
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  i.resp-icon { /* auf denen nun auch das Logo zu erkennen ist (weiß -> nicht mehr unsichtbar) */
+    color:rgb(255, 255, 255);
+  }
+
+  .technik-p {  /*die Texte auf den Infokarten der Technik und die des Footers (nächste 5 Klassen) können vergrößert werden */
+    margin: 3px;
+    font-size: 1.8em;
+  }
+  
+  p.technik-p {
+    font-size: 1.4em;
+  }
+  .page-footer {
+    font-size: 1em;
+  }
+  h5.footer-1 {
+    font-size: 1.5em;
+  }
+  h2.footer-1 {
+    font-size: 2em
+  }
+  .gallery a {
+    width: 32%;
+  }  
+}
+
+@media(min-width: 80em) {
+  .cardtextsize { /*noch größerer Kartentext */
+    font-size: 2.15em;
+  } 
+}
+@media(min-width: 93em) { /*Die Technik Infoboxen gehen bei ausreichender Breite statt innerhalb der Schematischen Darstellung nach Rechts davon */
+  .technik-text {
+    left: 110%;
+    top: 14%;
+  }
+}

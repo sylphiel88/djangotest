@@ -28,7 +28,7 @@
 
     <ul id="dropdown1" class="dropdown-content green white-text">
         <li><a href="#" class="white-text">Über mich!</a></li>
-        <li><a href="#" class="white-text">Werdegang</a></li>
+        <li><a href="{% url 'werdegang' %}" class="white-text">Werdegang</a></li>
         <li><a href="#" class="white-text">Wünsche und Ziele</a></li>
     </ul>
 <!-- fixed navbar (always on top) -->
@@ -52,7 +52,7 @@
 <!-- dropdown menu sidebar -->
     <ul id="dropdown2" class="dropdown-content green white-text">
         <li><a href="#" class="white-text">Über mich!</a></li>
-        <li><a href="#" class="white-text">Werdegang</a></li>
+        <li><a href="{% url 'werdegang' %}" class="white-text">Werdegang</a></li>
         <li><a href="#" class="white-text">Wünsche und Ziele</a></li>
     </ul>
 <!-- sidebar for smaller screens -->
@@ -69,7 +69,7 @@
             </div>
             <div class="card-content white-text">
                 <span class="card-title activator">Bewerbungsbild<i class="material-icons right">more_vert</i></span>
-                <p><a href="#"><span class="white-text">Projekt Webseite</a></p>
+                <p><a href="{%url 'aquarium'%}"><span class="white-text">Projekt Webseite</a></p>
             </div>
             <div class="card-reveal green2">
                 <span class="card-title white-text">Jan Ihmels<i class="material-icons right">close</i></span>
@@ -111,7 +111,7 @@
                 </div>
                 <div class="card-content white-text">
                     <span class="card-title activator">Bewerbungsbild<i class="material-icons right">more_vert</i></span>
-                    <p><a href="#"><span class="white-text">Projekt Webseite</a></p>
+                    <p><a href="{%url 'aquarium'%}"><span class="white-text">Projekt Webseite</a></p>
                 </div>
                 <div class="card-reveal green2">
                     <span class="card-title white-text">Jan Ihmels<i class="material-icons right">close</i></span>
@@ -151,7 +151,6 @@
                     var dc = document.cookie;
                     var prefix = name+"=";
                     var begin = dc.indexOf("; "+prefix);
-                    console.log(begin);
                     if(begin== -1) {
                         begin=dc.indexOf(prefix);
                         if(begin!=0) return null
@@ -177,9 +176,9 @@
 
                 function changeColor(color) {
                     document.cookie = "color="+color;
-                    var color2=decrease_brightness(color, -0.4);
+                    var color2=decrease_brightness(color, incordec(color));
                     document.cookie = "color2="+color2;
-                    var bwcolor = bwColor(color, true);
+                    var bwcolor = bwColor(color);
                     document.cookie = "colorbw="+bwcolor;
                     location.reload();
                 };
@@ -198,19 +197,23 @@
 
                     return rgb;        
                 };
-                function bwColor(hex, bw) {
+                function bwColor(hex) {
+                    return isLightorDark(hex)?'#000000':'#FFFFFF';
+                }
+                function incordec(hex) {
+                    return isLightorDark(hex)?-0.2:-0.5;
+                }
+                function isLightorDark(hex){
                     if (hex.indexOf('#') === 0) {
                         hex = hex.slice(1);
                     }
                     if (hex.length === 3) {
                         hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
                     }
-                    var r = parseInt(hex.slice(0, 2), 16),
-                        g = parseInt(hex.slice(2, 4), 16),
-                        b = parseInt(hex.slice(4, 6), 16);
-                        return (r * 0.299 + g * 0.587 + b * 0.114) > 186
-                            ? '#000000'
-                            : '#FFFFFF';
+                    var r = parseInt(hex.slice(0, 2), 16);
+                    var g = parseInt(hex.slice(2, 4), 16);
+                    var b = parseInt(hex.slice(4, 6), 16);
+                    return (r * 0.299 + g * 0.587 + b * 0.114) > 186?true:false;
                 }
             </script>
             {% block content %}

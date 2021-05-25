@@ -1,0 +1,104 @@
+{%extends 'index.html'%}
+{%load static%}
+{%block indexicon%}
+<li><a href="{%url 'aquarium'%}" class="white-text"><i class="material-icons center white-text">home</i></a></li>
+{%endblock indexicon%}
+
+{%block indexicon1%}
+<li><a href="{%url 'aquarium'%}" class="white-text"><i class="material-icons center white-text">home</i>Startseite</a></li>
+{%endblock indexicon1%}
+
+{%block aqcontent%}
+<div class="container white-text">
+    <!-- multiple cards with infos -->
+    <div class="row">
+        <div class="col s12 m12">
+            <h4 class="header">Aus Spaß wird Ernst</h4>
+            <div class="card blue horizontal">
+                <div class="card-image imgcenter">
+                    <img src="{%static 'aquarium/pics/12l/IMG_0071.jpg'%}" class="responsive-img" />
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content centert">
+                        <p class="cardtextsize">Der Ursprungsgedanke bei dem Micro Aquarium war, dass meine Aquarien
+                            immer hinter mir stehen im Büro und ich gerne eins hätte, das direkt bei mir auf dem
+                            Schreibtisch steht.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row"></div>
+    <div class="row">
+        <div class="col s12 m12">
+            <h4 class="header right-align">Die Technik</h4>
+            <div class="card blue horizontal">
+                <div class="card-stacked">
+                    <div class="card-content centert">
+                        <p class="cardtextsize">Spannend war hier auch das Thema Technik. Es musste ja alles sehr
+                            klein sein. Es ist ein Riuty LED Licht mit etwa 350lm, ein Cikonielf Heizer und ein
+                            Dennerle Nanofilter verbaut.</p>
+                    </div>
+                </div>
+                <div class="card-image imgcenter">
+                    <img src="{%static 'aquarium/pics/12l/IMG_0105.jpg'%}" class="responsive-img" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row"></div>
+    <div class="row">
+        <div class="col s12 m12">
+            <h4 class="header">Hardscape</h4>
+            <div class="card blue horizontal">
+                <div class="card-image imgcenter">
+                    <img src="{%static 'aquarium/pics/12l/IMG_0091.jpg'%}" class="responsive-img" />
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content centert">
+                        <p class="cardtextsize">Hier ist der schwarze Kies und einige Wurzelstücke aus der
+                            Drachenwurzel aus dem 180er eingesetzt. Zudem ist auch ein wenig Bodengrunddünger
+                            unterlegt. Hauptteil des Hardscapes ist ein Seiryu Ryuoh.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row"></div>
+    <div class="row">
+        <div class="col s12 m12">
+            <h4 class="header right-align">Pflanzen</h4>
+            <div class="card blue horizontal">
+                <div class="card-stacked">
+                    <div class="card-content centert">
+                        <p class="cardtextsize">Auch hier habe ich <span class="pfl-nm">Anubias</span> benutzt.
+                            Diese gefällt mir einfach sehr gut. Ausserdem bot es sich auch an erneut Kopfstecklinge
+                            der <span class="pfl-nm">Rotalla Rotundifolia</span> zu verpflanzen.</p>
+                    </div>
+                </div>
+                <div class="card-image imgcenter">
+                    <img src="{%static 'aquarium/pics/12l/IMG_0096.jpg'%}" class="responsive-img" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row"></div>
+    <div class="row">
+        <div class="col s12 m12">
+            <h4 class="header">Fische und andere Tiere</h4>
+            <div class="card blue horizontal">
+                <div class="card-image imgcenter">
+                    <img src="{%static 'aquarium/pics/12l/IMG_0070.jpg'%}" class="responsive-img" />
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content centert">
+                        <p class="cardtextsize">Abgesehen von wenigen <span class="pfl-nm">Posthorschnecken</span>
+                            sind keine Tiere geplant. 12l sind ziemlich wenig für ziemlich jeden Aquarienbewohner.
+                            Eventuell kommen noch <span class="pfl-nm">Sakura Garnelen</span> rein.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

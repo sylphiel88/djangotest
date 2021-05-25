@@ -204,8 +204,114 @@ li:hover {
 .color-picker {
     display: block;
 }
+.jani {
+    margin-left: -20%;
+}
+.supper1 {
+    margin-left: -40%;
+}
+.tabwrapper {
+    margin-left: -20%;
+}
+.col1wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 48%;
+    text-align: right !important;
+    margin-right: 2%;
+}
+.date1 {
+    opacity: 0;
+    animation: col1w forwards;
+    animation-duration: 2s;
+}
+.date2 {
+    opacity: 0;
+    animation: col1w forwards;
+    animation-duration: 2s;
+    animation-delay: 2s;
+}
+.date3 {
+    opacity: 0;
+    animation: col1w forwards;
+    animation-duration: 2s;
+    animation-delay: 4s;
+}
+.date4 {
+    opacity: 0;
+    animation: col1w forwards;
+    animation-duration: 2s;
+    animation-delay: 6s;
+}
+@keyframes col1w {
+    0%      {margin-right: 15%; opacity: 0;}
+    100%    {margin-right: 0%; opacity: 1;}
+}
 
 
+.col2wrapper {
+    overflow: visible;
+    position: relative;
+    width: 47%;
+    text-align: left !important;
+    margin-left: 2%;
+}
+.row1{
+    opacity: 0;
+    animation: col2w forwards;
+    animation-duration: 2s;
+    animation-delay: 1s;
+}
+.row2{
+    opacity: 0;
+    animation: col2w forwards;
+    animation-duration: 2s;
+    animation-delay: 3s;
+}
+.row3{
+    opacity: 0;
+    animation: col2w forwards;
+    animation-duration: 2s;
+    animation-delay: 5s;
+}
+.row4{
+    opacity: 0;
+    animation: col2w forwards;
+    animation-duration: 2s;
+    animation-delay: 7s;
+}
+
+@keyframes col2w {
+    0%      {margin-left: 15%;}
+    100%    {margin-left: 0%; opacity: 1;}
+}
+
+.dates {
+    font-size: 1.2em;
+    letter-spacing: 0.25em;
+}
+
+.date1 {
+    letter-spacing: 0.2em;
+}
+.employer {
+    font-size: 1.0em;
+    font-weight: bold;
+}
+
+.task {
+    font-size: 0.9em;
+    font-weight: lighter;
+}
+
+.utask {
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+.addr {
+    font-size: 0.8em;
+}
 @media (min-width: 62em) {
     .color-picker{
         float: right;
