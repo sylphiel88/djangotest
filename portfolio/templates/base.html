@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{% static 'css/jquery.fancybox.css' %}">
     <link rel="stylesheet" href="{% static 'css/icon.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -27,9 +29,9 @@
     </style>
 
     <ul id="dropdown1" class="dropdown-content green white-text">
-        <li><a href="#" class="white-text">Über mich!</a></li>
-        <li><a href="{% url 'werdegang' %}" class="white-text">Werdegang</a></li>
-        <li><a href="#" class="white-text">Wünsche und Ziele</a></li>
+        <li><a href="{%url 'anschreiben'%}" class="white-text">Über mich!</a></li>
+        <li><a href="{%url 'werdegang'%}" class="white-text">Werdegang</a></li>
+        <li><a href="{%url 'ziele'%}" class="white-text">Wünsche und Ziele</a></li>
     </ul>
 <!-- fixed navbar (always on top) -->
     <div class="navbar-fixed">
@@ -41,8 +43,8 @@
                     <ul class="right hide-on-med-and-down">
                         <li><a href="#" class="dropdown-trigger white-text" data-target="dropdown1">Das bin ich.<i class="material-icons right white-text">arrow_drop_down</i></a></li>
                         <li><a href="{% url 'projects' %}" class="white-text">js-Demos</a></li>
-                        <li><a href="#" class="white-text">Videos</a></li>
-                        <li><a data-fancybox data-type="iframe" data-src="{% static 'bewertung.html' %}" href="javascript:;" class="white-text">Bewerten!</a></li>
+                        <li><a href="{% url 'videos' %}" class="white-text">Videos</a></li>
+                        <li><a data-fancybox data-type="iframe" data-src="{%url 'bewertung'%}" href="javascript:;" class="white-text">Bewerten!</a></li>
                         <li class="white-text">&nbsp &nbsp Designfarbe: &nbsp <div class="color-picker"><input type="color" id="picker" value="{{color}}" onchange="changeColor(this.value)"></div></li>
                     </ul>
                 </div>
@@ -51,15 +53,15 @@
     </div>
 <!-- dropdown menu sidebar -->
     <ul id="dropdown2" class="dropdown-content green white-text">
-        <li><a href="#" class="white-text">Über mich!</a></li>
+        <li><a href="{%url 'anschreiben'%}" class="white-text">Über mich!</a></li>
         <li><a href="{% url 'werdegang' %}" class="white-text">Werdegang</a></li>
-        <li><a href="#" class="white-text">Wünsche und Ziele</a></li>
+        <li><a href="{%url 'ziele'%}" class="white-text">Wünsche und Ziele</a></li>
     </ul>
 <!-- sidebar for smaller screens -->
     <ul class="sidenav green" id="slide-out">
         <li><a href="#" class="dropdown-trigger white-text" data-target="dropdown2">Das bin ich<i class="material-icons right white-text">arrow_drop_down</i></a></li>
-        <li><a href="{% url 'projects' %}" class="white-text">js-Demos</a></li>
-        <li><a href="#" class="white-text">Videos</a></li>
+        <li><a href="{%url 'projects' %}" class="white-text">js-Demos</a></li>
+        <li><a href="{%url 'videos'%}" class="white-text">Videos</a></li>
         <li><a href="#" class="white-text">Bewerten!</a></li>
         <p class="white-text">&nbsp &nbsp &nbsp &nbspDesignfarbe: &nbsp <div class="row center-align color-picker"><input type="color" id="picker" value="{{color}}" onchange="changeColor(this.value)"></div></p>
         <div class="row"></div>
@@ -145,81 +147,79 @@
                 </div>
             </div>
         </div>
-        <div class="contwrapper">
-            <script type="text/javascript">
-                function getCookie(name) {
-                    var dc = document.cookie;
-                    var prefix = name+"=";
-                    var begin = dc.indexOf("; "+prefix);
-                    if(begin== -1) {
-                        begin=dc.indexOf(prefix);
-                        if(begin!=0) return null
-                    }
-                    else {
-                        begin+=2;
-                        var end = document.cookie.indexOf(";",begin);
-                        if(end==-1) {
-                            end = dc.length;
-                        }
-                    }
-                    return decodeURI(dc.substring(begin+prefix.length, end));
+        <script type="text/javascript">
+            function getCookie(name) {
+                var dc = document.cookie;
+                var prefix = name+"=";
+                var begin = dc.indexOf("; "+prefix);
+                if(begin== -1) {
+                    begin=dc.indexOf(prefix);
+                    if(begin!=0) return null
                 }
-                
-                var colorc = getCookie("color");
-                var color2c = getCookie("color2");
-                if (colorc == null) {
-                    document.cookie = "color=#9ECC1F";
+                else {
+                    begin+=2;
+                    var end = document.cookie.indexOf(";",begin);
+                    if(end==-1) {
+                        end = dc.length;
+                    }
                 }
-                if (color2c == null) {
-                    document.cookie = "color2=#4F660F";
+                return decodeURI(dc.substring(begin+prefix.length, end));
+            }
+            
+            var colorc = getCookie("color");
+            var color2c = getCookie("color2");
+            if (colorc == null) {
+                document.cookie = "color=#9ECC1F";
+            }
+            if (color2c == null) {
+                document.cookie = "color2=#4F660F";
+            }
+
+            function changeColor(color) {
+                document.cookie = "color="+color;
+                var color2=decrease_brightness(color, incordec(color));
+                document.cookie = "color2="+color2;
+                var bwcolor = bwColor(color);
+                document.cookie = "colorbw="+bwcolor;
+                location.reload();
+            };
+            function decrease_brightness(hex, lum){      
+                hex = String(hex).replace(/[^0-9a-f]/gi, '');
+                if (hex.length < 6) {
+                    hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+                }
+                lum = lum || 0;
+                var rgb = "#", c, i;
+                for (i = 0; i < 3; i++) {
+                    c = parseInt(hex.substr(i*2,2), 16);
+                    c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+                    rgb += ("00"+c).substr(c.length);
                 }
 
-                function changeColor(color) {
-                    document.cookie = "color="+color;
-                    var color2=decrease_brightness(color, incordec(color));
-                    document.cookie = "color2="+color2;
-                    var bwcolor = bwColor(color);
-                    document.cookie = "colorbw="+bwcolor;
-                    location.reload();
-                };
-                function decrease_brightness(hex, lum){      
-                    hex = String(hex).replace(/[^0-9a-f]/gi, '');
-                    if (hex.length < 6) {
-                        hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
-                    }
-                    lum = lum || 0;
-                    var rgb = "#", c, i;
-                    for (i = 0; i < 3; i++) {
-                        c = parseInt(hex.substr(i*2,2), 16);
-                        c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
-                        rgb += ("00"+c).substr(c.length);
-                    }
+                return rgb;        
+            };
+            function bwColor(hex) {
+                return isLightorDark(hex)?'#000000':'#FFFFFF';
+            }
+            function incordec(hex) {
+                return isLightorDark(hex)?-0.2:-0.5;
+            }
+            function isLightorDark(hex){
+                if (hex.indexOf('#') === 0) {
+                    hex = hex.slice(1);
+                }
+                if (hex.length === 3) {
+                    hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+                }
+                var r = parseInt(hex.slice(0, 2), 16);
+                var g = parseInt(hex.slice(2, 4), 16);
+                var b = parseInt(hex.slice(4, 6), 16);
+                return (r * 0.299 + g * 0.587 + b * 0.114) > 186?true:false;
+            }
+        </script>
+        {% block content %}
 
-                    return rgb;        
-                };
-                function bwColor(hex) {
-                    return isLightorDark(hex)?'#000000':'#FFFFFF';
-                }
-                function incordec(hex) {
-                    return isLightorDark(hex)?-0.2:-0.5;
-                }
-                function isLightorDark(hex){
-                    if (hex.indexOf('#') === 0) {
-                        hex = hex.slice(1);
-                    }
-                    if (hex.length === 3) {
-                        hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
-                    }
-                    var r = parseInt(hex.slice(0, 2), 16);
-                    var g = parseInt(hex.slice(2, 4), 16);
-                    var b = parseInt(hex.slice(4, 6), 16);
-                    return (r * 0.299 + g * 0.587 + b * 0.114) > 186?true:false;
-                }
-            </script>
-            {% block content %}
-
-            {% endblock %}
-        </div>
+        {% endblock %}
     </div>
     <div class="footer">
         <div id="button"></div>
@@ -229,14 +229,14 @@
 	            <div class="row">
                     <div class="col l12 s12">
                         <h2 class="white-text footer-1">Janana</h2>
-                        <p class="white-text text-darken-3"><h5 class="footer-2">Diese Webseite dient der Vorstellung meiner Person für Firmen, bei denen ich mich bewerben möchte. Es soll meine Fähigkeiten mit HTML, CSS, Django, Java-Script und nginx Servern unterstreichen.</h5></p>
+                        <p class="white-text text-darken-3"><h5 class="footer-2">Diese Webseite dient der Vorstellung meiner Person für Firmen, bei denen ich mich bewerben möchte. Es soll meine Fähigkeiten mit HTML, CSS, Django und Java-Script unterstreichen.</h5></p>
                     </div>
                 </div>
                 <div class="row footer-copyright">
                     <div class="container">
                         © 2021 Jan Ihmels, Hellerweg 51, 73728 Esslingen &nbsp;&nbsp;| &nbsp;&nbsp; enstanden für das Berufsförderwerk Schömberg, Steinbeisstraße 30, 71272 Renningen
                         <a class="white-text right" href="https://www.bfw-schoemberg.de"> BfW Schömberg</a><br/>
-                        <a class="white-text right" href="sites/impressum.html">Impressum </a>
+                        <a class="white-text right" href="{% url 'impressum' %}">Impressum </a>
                     </div>
                 </div>
                 <div class="row footer-copyright"></div>

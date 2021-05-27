@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block  content %}
+<div class="container">
+    <div class="row"></div>
+    <div class="row">
+        <div class="col l10 m10 s10">Sehen Sie hier Videos</div>
+    </div>
+    <div class="row">
+    {% if videos %}
+    {% for vid in videos %}
+    <div class="col l4 m6 s12 floatd">
+        <a data-fancybox="Videos" href="{{vid.videofile.url}}" data-caption="{{vid.title}}"><img src="{{vid.previewimg.url}}" class="proimg responsive-img"/></a>
+        <h6 class="center-align">{{vid.title}}</h6>
+    </div>
+    {%endfor%}
+    {%else%}
+    Keine Videos vorhanden!
+    {%endif%}
+    </div>
+</div>
+{% endblock %}

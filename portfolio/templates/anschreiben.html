@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <style>
+        .asfont2 {
+            color: lightgrey;
+            font-weight: 200;
+            animation: asfani forwards;
+            animation-duration: 4s;
+            animation-delay: 1s;
+        }
+
+    @keyframes asfani {
+        0% {font-weight: 200;}
+        30% {font-weight: 900;}
+        100% {font-weight: 900; color: {{color2}}}
+}
+
+
+    </style>
+    <div class="container">
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row center-align"><h3><span class="asfont">Sehr geehrte Damen und Herren,</span></h3></div>
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row anschreibenwrapper">
+            <p class="asfont1">Warum sollten Sie ausgerechnet auf mich zurückgreifen? Nun, ich bin <span class="asfont2">MOTIVIERT</span>. Das haben Sie schon oft gehört? Nicht so wie von mir! Seit ich (wieder) angefangen habe <span class="asfont2">WEBSEITEN</span> zu programmieren, mache ich nicht mehr viel anderes. Ich habe mir neue Konzepte angeignet. Für diese Webseite habe ich mir <span class="asfont2">DJANGO</span> neu beigebracht und vorhandene Kenntnisse in <span class="asfont2">JAVASCRIPT</span>, <span class="asfont2">HTML</span> und <span class="asfont2">CSS</span> eingesetzt. Ich habe in naher Zukunft vor mich tiefer in <span class="asfont2">REACT.JS</span> einzulesen und habe in Studium und Freizeit auch mit anderen Programmiersprachen auseinander gesetzt. Meine Fähigkeiten mit der Programmiersprache der nahen Zukunft, <span class="asfont2">PYTHON</span> werden immer besser und ich habe auch andere OOPs ausprobiert.</p>
+        </div>
+        <div class="row"></row>
+        <div class="row anschreibenwrapper">
+            <p class="asfont1">Es fällt mir leicht neue <span class="asfont2">FÄHIGKEITEN</span> zu erlernen. Während der Umschulung habe ich viel mehr meine Seite als <span class="asfont2">TEAMPLAYER</span> und vorallem <span class="asfont2">FÜHRUNGSPERSON</span> verbessert und kann mich also auch in einem Team gut mit einbringen. Mir fällt es vergleichsweise leicht anderen Themen, die ich erlernt habe, gut zu <span class="asfont2">VERMITTELN</span>.</p>
+        </div>
+        <div class="row"></div>
+        <div class="row anschreibenwrapper">
+            <p class="asfont1">Klingt alles super? Ist es auch. Aber warum bin ich dann nicht längst fest in einem Job in der IT-Welt. Nun, es gibt ein paar kleine <span class="asfont2">PROBLEME</span>, auf die ich dennoch zu sprechen kommen möchte. Ich finde es wichtig, dass ein potentieller <span class="asfont2">ARBEITGEBER</span> vorher darüber Bescheid weiß. Ich habe, vorallem im <span class="asfont2">STUDIUM</span>, mit meinem ADHS und meiner leichten Depression zu kämpfen gehabt. Ich habe während meiner <span class="asfont2">AUSBILDUNG</span> zum Hörakustiker, bzw schon davor, <span class="asfont2">STRATEGIEN</span> entwickelt, mit denen ich diese Probleme umschiffe und weitestgehend <span class="asfont2">ZUFRIEDENER</span> und <span class="asfont2">KONZENTRIERTER</span> an meine Arbeit gehen kann.</p>
+        </div>
+        <div class="row"></div>
+        <div class="row anschreibenwrapper">
+            <p class="asfont1">Zusammenfassend kann man sagen, dass man mit mir einen leistungsfähigen Mitarbeiter bekommen kann, der rasend schnell neue <span class="asfont2">KONZEPTE</span> auffasst, <span class="asfont2">TEAMFÄHIG</span> ist und der Ihnen das auch gerne bei einem <span class="asfont2">PRAKTIKUM</span> beweisen möchte. <span class="asfont2">INTERESSE</span> geweckt? Gerne dürfen Sie jederzeit bei mir anrufen oder mir eine E-Mail schicken.</p>
+        </div>
+        <div class="row anschreibenwrapper asfont1">
+            Herzlichst, Ihr
+        </div>
+        <div class="row anschreibenwrapper">
+            <h3 class="asfont">Jan Ihmels</h3>
+        </div>
+    </div>
+{% endblock %}
