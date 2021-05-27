@@ -24,3 +24,9 @@
         </div>
     </div>     
 {% endblock %}
+{% block rubixcube %}
+<a data-fancybox="Videos" href="{{rubix.videofile.url}}" data-caption="{{rubix.title}}">RubixCube Demo</a>
+{% endblock %}
+{% block rubixcube2 %}
+<p><a data-fancybox="Videos" href="{{videos.videofile.url}}" data-caption="{{videos.title}}"><span class="white-text">RubixCube Demo</span></a></p>
+{% endblock %}
