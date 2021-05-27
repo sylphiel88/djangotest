@@ -41,7 +41,7 @@ def projects(request):
         resp.set_cookie('color',colorbw)
     rubix = video.objects.all().get(pk=4)
     maxit = video.objects.all().get(pk=5)
-    return render(request, 'home.html', {'name':'Jan', 'color':color, 'color2':color2, 'colorbw':colorbw, 'rubix':rubix, 'maxit':maxit})
+    return render(request, 'projects.html', {'name':'Jan', 'color':color, 'color2':color2, 'colorbw':colorbw, 'rubix':rubix, 'maxit':maxit})
 
 def werdegang(request):
     if 'color' in request.COOKIES.keys() and 'color2' in request.COOKIES.keys() and 'colorbw' in request.COOKIES.keys():
@@ -58,7 +58,7 @@ def werdegang(request):
         resp.set_cookie('color',colorbw)
     rubix = video.objects.all().get(pk=4)
     maxit = video.objects.all().get(pk=5)
-    return render(request, 'home.html', {'name':'Jan', 'color':color, 'color2':color2, 'colorbw':colorbw, 'rubix':rubix, 'maxit':maxit})
+    return render(request, 'werdegang.html', {'name':'Jan', 'color':color, 'color2':color2, 'colorbw':colorbw, 'rubix':rubix, 'maxit':maxit})
 
 def schule(request):
     if 'color' in request.COOKIES.keys() and 'color2' in request.COOKIES.keys() and 'colorbw' in request.COOKIES.keys():
@@ -75,7 +75,7 @@ def schule(request):
         resp.set_cookie('color',colorbw)
     rubix = video.objects.all().get(pk=4)
     maxit = video.objects.all().get(pk=5)
-    return render(request, 'home.html', {'name':'Jan', 'color':color, 'color2':color2, 'colorbw':colorbw, 'rubix':rubix, 'maxit':maxit})
+    return render(request, 'schule.html', {'name':'Jan', 'color':color, 'color2':color2, 'colorbw':colorbw, 'rubix':rubix, 'maxit':maxit})
 
 def hobbies(request):
     if 'color' in request.COOKIES.keys() and 'color2' in request.COOKIES.keys() and 'colorbw' in request.COOKIES.keys():
@@ -92,7 +92,7 @@ def hobbies(request):
         resp.set_cookie('color',colorbw)
     rubix = video.objects.all().get(pk=4)
     maxit = video.objects.all().get(pk=5)
-    return render(request, 'home.html', {'name':'Jan', 'color':color, 'color2':color2, 'colorbw':colorbw, 'rubix':rubix, 'maxit':maxit})
+    return render(request, 'hobbies.html', {'name':'Jan', 'color':color, 'color2':color2, 'colorbw':colorbw, 'rubix':rubix, 'maxit':maxit})
 
 def anschreiben(request):
     if 'color' in request.COOKIES.keys() and 'color2' in request.COOKIES.keys() and 'colorbw' in request.COOKIES.keys():
@@ -109,7 +109,7 @@ def anschreiben(request):
         resp.set_cookie('color',colorbw)
     rubix = video.objects.all().get(pk=4)
     maxit = video.objects.all().get(pk=5)
-    return render(request, 'home.html', {'name':'Jan', 'color':color, 'color2':color2, 'colorbw':colorbw, 'rubix':rubix, 'maxit':maxit})
+    return render(request, 'anschreiben.html', {'name':'Jan', 'color':color, 'color2':color2, 'colorbw':colorbw, 'rubix':rubix, 'maxit':maxit})
 
 def ziele(request):
     if 'color' in request.COOKIES.keys() and 'color2' in request.COOKIES.keys() and 'colorbw' in request.COOKIES.keys():
@@ -126,7 +126,7 @@ def ziele(request):
         resp.set_cookie('color',colorbw)
     rubix = video.objects.all().get(pk=4)
     maxit = video.objects.all().get(pk=5)
-    return render(request, 'home.html', {'name':'Jan', 'color':color, 'color2':color2, 'colorbw':colorbw, 'rubix':rubix, 'maxit':maxit})
+    return render(request, 'ziele.html', {'name':'Jan', 'color':color, 'color2':color2, 'colorbw':colorbw, 'rubix':rubix, 'maxit':maxit})
 
 def bewertungns(request):
     if 'color' in request.COOKIES.keys() and 'color2' in request.COOKIES.keys() and 'colorbw' in request.COOKIES.keys():
@@ -191,7 +191,7 @@ def impressum(request):
         resp.set_cookie('color',colorbw)
     rubix = video.objects.all().get(pk=4)
     maxit = video.objects.all().get(pk=5)
-    return render(request, 'home.html', {'name':'Jan', 'color':color, 'color2':color2, 'colorbw':colorbw, 'rubix':rubix, 'maxit':maxit})
+    return render(request, 'impressum.html', {'name':'Jan', 'color':color, 'color2':color2, 'colorbw':colorbw, 'rubix':rubix, 'maxit':maxit})
 
 def aqbewe(request):
     bws = bewertung.objects.all()
