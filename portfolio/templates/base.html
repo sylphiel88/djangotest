@@ -26,8 +26,8 @@
         .footer #container{background: {{color}}; opacity: 0.8;}
         .footer-copyright {background-color: {{color2}}; opacity: 0.8;}
         .white-text {color: {{colorbw}} !important;}
+        body {background-image: url("{%static 'pics/4858794.jpg'%}"); background-repeat: no-repeat; background-size: 100vw 108vh;}
     </style>
-
     <ul id="dropdown1" class="dropdown-content green white-text">
         <li><a href="{%url 'anschreiben'%}" class="white-text">Über mich!</a></li>
         <li><a href="{%url 'werdegang'%}" class="white-text">Werdegang</a></li>
@@ -80,7 +80,7 @@
         </div>        
         <div class="card green2">
             <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="{% static 'pics/jan.jpg' %}">
+                <img class="activator" src="{% static 'pics/rubix klein.jpg' %}">
             </div>
             <div class="card-content white-text">
                 <span class="card-title activator white-text">Projekt RubixCube<i class="material-icons right">more_vert</i></span>
@@ -93,7 +93,7 @@
         </div>
         <div class="card green2">
             <div class="card-image waves-effect waves-block waves-light responsive-img">
-                <img class="activator" src="{% static 'pics/jan.jpg' %}">
+                <img class="activator" src="{% static 'pics/maxit klein.jpg' %}">
             </div>
             <div class="card-content white-text">
                 <span class="card-title activator white-text">Projekt MaxIT<i class="material-icons right">more_vert</i></span>
@@ -122,7 +122,7 @@
             </div>        
             <div class="card green2">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{% static 'pics/jan.jpg' %}">
+                    <img class="activator" src="{% static 'pics/rubix klein.jpg' %}">
                 </div>
                 <div class="card-content white-text">
                     <span class="card-title activator white-text">Projekt RubixCube<i class="material-icons right">more_vert</i></span>
@@ -135,7 +135,7 @@
             </div>
             <div class="card green2">
                 <div class="card-image waves-effect waves-block waves-light responsive-img">
-                    <img class="activator" src="{% static 'pics/jan.jpg' %}">
+                    <img class="activator" src="{% static 'pics/maxit klein.jpg' %}">
                 </div>
                 <div class="card-content white-text">
                     <span class="card-title activator white-text">Projekt MaxIT<i class="material-icons right">more_vert</i></span>
@@ -238,6 +238,7 @@
                         <a class="white-text right" href="https://www.bfw-schoemberg.de"> BfW Schömberg</a><br/>
                         <a class="white-text right" href="{% url 'impressum' %}">Impressum </a>
                     </div>
+                    <a href='https://de.freepik.com/fotos/hintergrund' class="white-text">Hintergrund Foto erstellt von rawpixel.com - de.freepik.com</a>
                 </div>
                 <div class="row footer-copyright"></div>
             </div>
@@ -246,5 +247,6 @@
     <script src="{% static 'js/materialize.js' %}"></script>
     <script src="{% static 'js/jquery.fancybox.js' %}"></script>
     <script src="{% static 'js/start.js' %}"></script>
+    </section>
 </body>
 </html>
