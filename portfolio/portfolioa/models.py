@@ -13,3 +13,7 @@ class video(models.Model):
     title = models.CharField(max_length=100)
     videofile = models.FileField(upload_to='videos')
     previewimg = models.FileField(upload_to='pics')
+
+class bewertungneu(models.Model):
+    bw1 = models.IntegerField()
+    

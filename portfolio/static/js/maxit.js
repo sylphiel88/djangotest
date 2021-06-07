@@ -18,10 +18,11 @@ for(i=0;i<8;i++) {
             empty=1;
             zahlenarray[i][j]=20;
         } else {
-            zahlenarray[i][j] = stdzahlen[8*j+i-empty];
+            zahlenarray[i][j] = stdzahlen[8*+i+j-empty];
         }
     }
 }
+console.log(zahlenarray);
 rebuild(true);
 
 function shuffle(array) {
@@ -138,7 +139,13 @@ function rebuild(neworold) {
                     text.setAttribute("id", "Text"+i+j);
                     text.setAttribute("x",i*50+20);
                     text.setAttribute("y",j*50+50);
-                    text.innerHTML=""+zahlenarray[i][j];
+                    text.innerHTML=zahlenarray[i][j];
+                    document.getElementById("svgmaxit").appendChild(text);
+                } else {
+                    var text = document.createElementNS(svgns, "text");
+                    text.setAttribute("id", "Text"+i+j);
+                    text.setAttribute("x",i*50+20);
+                    text.setAttribute("y",j*50+50);
                     document.getElementById("svgmaxit").appendChild(text);
                 }
             } else {

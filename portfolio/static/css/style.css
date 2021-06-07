@@ -343,7 +343,11 @@ li:hover {
     text-align: justify;
 }
 
-
+@media(min-width: 30em) {
+    .lightls {
+        font-size: 0.8em;
+    }
+}
 
 @media (min-width: 62em) {
     .jani {
