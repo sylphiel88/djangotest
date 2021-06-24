@@ -208,10 +208,18 @@ def aqbewe(request):
         sumbw3 += bw3wert
         i = i + 1
     lenbw = len(bws)
-    anmtext = bewertung.objects.get(id=lenbw).anm
-    avgbw1 = round(sumbw1 / i, 1)
-    avgbw2 = round(sumbw2 / i, 1)
-    avgbw3 = round(sumbw3 / i, 1)
+    if lenbw!=0:
+        anmtext = bewertung.objects.get(id=lenbw).anm
+    else:
+        anmtext =""
+    if lenbw!=0:
+        avgbw1 = round(sumbw1 / i, 1)
+        avgbw2 = round(sumbw2 / i, 1)
+        avgbw3 = round(sumbw3 / i, 1)
+    else:
+        avgbw1 = 0
+        avgbw2 = 0
+        avgbw3 = 0
     if request.method == 'POST':
         sendbw1 = int(request.POST['bw1'])
         sendbw2 = int(request.POST['bw2'])
