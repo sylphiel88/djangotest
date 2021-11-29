@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.css">
+    <link rel="stylesheet" href="css/icon.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="row center-align"><h5>WebGL | THREE-js Demo</h5></div>
+            <div class="col s12 m6 offset-m3" id="canvas1"></div>
+            <div class="row"></div>
+                <form>
+                    <div class="col s4"><input type="range" max="360" min="-360" id="inp1" value="45">Rotate x&nbsp;&nbsp;<span id="value1">45</span></div>
+                    <div class="col s4"><input type="range" max="360" min="-360" id="inp2" value="90">Rotate y&nbsp;&nbsp;<span id="value2">90</span></div>
+                    <div class="col s4"><input type="range" max="360" min="-360" id="inp3">Rotate z&nbsp;&nbsp;<span id="value3">0</span></div>
+                </form>
+            </div>    
+        </div>
+    </div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/materialize.js"></script>    
+    <script type="module" src="js/3js_cube.js"></script>
+</body>
+</html>

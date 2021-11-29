@@ -25,7 +25,26 @@ li:hover {
     background-color: rgb(65, 83, 15);
 } */
 
+.br {
+    font-size: 0.8em;
+}
+#canvas {
+    width: 0;
+    height: 0%;
+    padding: 0px;
+    position: static; /* fixed or static */
+    top: -10%;
+    margin-left: 25%;
+}
 
+#canvas1 {
+    width: 0;
+    height: 0%;
+    padding: 0px;
+    position: static; /* fixed or static */
+    margin-top: -10%;
+    margin-left: -15%;
+}
 
 .footer #button{
 	width:35px;
@@ -343,6 +362,10 @@ li:hover {
     text-align: justify;
 }
 
+.responsive-img {
+    z-index: 999;
+}
+
 @media(min-width: 30em) {
     .lightls {
         font-size: 0.8em;
@@ -350,6 +373,10 @@ li:hover {
 }
 
 @media (min-width: 62em) {
+    .br {
+        font-size: 1em;
+    }
+
     .jani {
         position: fixed;
         bottom: 4%;
@@ -357,7 +384,7 @@ li:hover {
     }
     
     .lightls {
-        font-size: 1em;
+        font-size: 1em; 
     }
     .color-picker{
         float: right;
@@ -373,7 +400,14 @@ li:hover {
     }
     .leftbar {
         visibility: visible;
-     }
+    }
+    #canvas {
+        margin-left:30%;
+    }
+    #canvas1 {
+        margin-top:10%;
+        margin-left:30%;
+    }
 }
 
 @media (min-width: 75em) {

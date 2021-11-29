@@ -3,9 +3,295 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.fancybox.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icon.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Document</title>
 </head>
 <body>
-    Hello World!
+    <style>
+        input[type=range]::-webkit-slider-runnable-track {
+            background-color: {{color}} !important;
+            box-shadow: 0 1px 0 0 {{color2}} !important;
+        }
+        
+        input[type=range]::-webkit-slider-thumb {
+            background-color:{{color2}} !important;
+        }
+        
+        input[type=range]+.thumb{
+            background-color: {{color}} !important;
+        }
+        input[type=range] + .thumb.active .value {
+            color: {{colorbw}};
+        }
+        
+        .input-field input[type=text]{
+            color: rgb(0,0,0) !important;
+        }
+        .input-field input[type=text]:focus {
+            border-bottom: 1px solid {{color}} !important;
+            box-shadow: 0 1px 0 0 {{color2}} !important;
+        }
+        
+        .bw1 {
+            margin-top: 2.5%;
+        }
+        .bw2 {
+            margin-top: -1.5%;
+        }
+        .col1 {
+            background-color: {{color}};
+            color: {{colorbw}};
+        }
+        .col1:hover {
+            background-color: {{color2}};
+        }
+    </style>
+    
+    <div class="container">
+        <div class="row"></div>
+        <div class="row"><span>Anzahl Bewertungen: {{lenbw}}</span></div>
+        <div class="row"><div class="col s10"><h5>Thema: Das bin Ich</h5></div><div class="col s2"><h6>&nbsp;Ø</h6></div></div>
+        <form id="myForm" name="myForm" method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col s6">
+                    <p class="bw">Wie gefällt Ihnen die Formulierung der Texte?</p>
+                </div>
+                <div class="col s4">
+                    <p class="range-field bw bw1">
+                        {{form.bw1Formulierung}}
+                    </p>
+                </div>
+                <div class="col s2">
+                    <p class="bw" id="bw1">{{avg1}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <p class="bw">Wie würden Sie die CSS Effekte bewerten?</p>
+                </div>
+                <div class="col s4">
+                    <p class="range-field bw bw1">
+                        {{form.bw1Css}}
+                    </p>
+                </div>
+                <div class="col s2">
+                    <p class="bw" id="bw2">{{avg2}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <p class="bw">Wie gefällt Ihnen der Aufbau des Lebenslaufs?</p>
+                </div>
+                <div class="col s4">
+                    <p class="range-field bw bw1">
+                        {{form.bw1Aufbau}}
+                    </p>
+                </div>
+                <div class="col s2">
+                    <p class="bw" id="bw3">{{avg3}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <p class="bw">Haben Sie Anmerkungen zu diesem Bereich?</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <div class="range-field bw1 input-field">
+                        {{form.bw1Aenderung}}
+                    </div>
+                </div>
+                <div class="col s6">
+                    <p class="bw" id="anm1">{{t1}}</p>
+                </div>
+            </div>
+            <div class="row"><div class="col s12"><h5>Thema: JS-Demos</h5></div></div>
+            <div class="row">
+                <div class="col s6 bw2">
+                    <p class="bw">Finden Sie die Integration der FancyBox für diese Anwendung passend?</p>
+                </div>
+                <div class="col s4">
+                    <p class="range-field bw bw1">
+                        {{form.bw2Fancy}}
+                    </p>
+                </div>
+                <div class="col s2">
+                    <p class="bw" id="bw1">{{avg4}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6 bw">
+                    <p class="bw">Wie würden Sie die Qualität der Projekte bewerten?</p>
+                </div>
+                <div class="col s4">
+                    <p class="range-field bw bw1">
+                        {{form.bw2Projects}}
+                    </p>
+                </div>
+                <div class="col s2">
+                    <p class="bw" id="bw1">{{avg5}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <p class="bw">Haben Sie Anmerkungen zu diesem Bereich?</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <p class="range-field bw bw1 input-field">
+                        {{form.bw2Aenderung}}
+                    </p>
+                </div>
+                <div class="col s6">
+                    <p class="bw" id="anm2">{{t2}}</p>
+                </div>
+            </div>
+            <div class="row"><div class="col s12"><h5>Thema: Videos</h5></div></div>
+            <div class="row">
+                <div class="col s6">
+                    <p class="bw bw2">Wie bewerten Sie den Einsatz der Django Template Language für die Videos?</p>
+                </div>
+                <div class="col s4">
+                    <p class="range-field bw bw1">
+                        {{form.bw3Dtl}}
+                    </p>
+                </div>
+                <div class="col s2">
+                    <p class="bw" id="bw3">{{avg6}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <p class="bw bw2">Wie gefällt Ihnen der Inhalt der Videos?</p>
+                </div>
+                <div class="col s4">
+                    <p class="range-field bw bw1">
+                        {{form.bw3Inhalt}}
+                    </p>
+                </div>
+                <div class="col s2">
+                    <p class="bw" id="bw3">{{avg7}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <p class="bw">Haben Sie Anmerkungen zu diesem Bereich?</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <p class="range-field bw bw1 input-field">
+                        {{form.bw3Aenderung}}
+                    </p>
+                </div>
+                <div class="col s6">
+                    <p class="bw" id="anm2">{{t3}}</p>
+                </div>
+            </div>
+            <div class="row"><div class="col s12"><h5>Thema: Diese Bewertungsseite</h5></div></div>
+            <div class="row">
+                <div class="col s6">
+                    <p class="bw">Welchen Wert würden Sie der Qualität der Fragen zuordnen?</p>
+                </div>
+                <div class="col s4">
+                    <p class="range-field bw bw1">
+                        {{form.bw4Bewe}}
+                    </p>
+                </div>
+                <div class="col s2">
+                    <p class="bw" id="bw3">{{avg8}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <p class="bw">Haben Sie Anmerkungen zu diesem Bereich?</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <p class="range-field bw bw1 input-field">
+                        {{form.bw4Aenderung}}
+                    </p>
+                </div>
+                <div class="col s6">
+                    <p class="bw" id="anm2">{{t4}}</p>
+                </div>
+            </div>
+            <div class="row"><div class="col s12"><h5>Thema: Weitere Seiten</h5></div></div>
+            <div class="row">
+                <div class="col s6">
+                    <p class="bw">Gefällt Ihnen die Startseite?</p>
+                </div>
+                <div class="col s4">
+                    <p class="range-field bw bw1">
+                        {{form.bw5Start}}
+                    </p>
+                </div>
+                <div class="col s2">
+                    <p class="bw" id="bw3">{{avg9}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <p class="bw">Sagt die Projekt Webseite (Link rechts im Seitenmenü) Ihnen zu?</p>
+                </div>
+                <div class="col s4">
+                    <p class="range-field bw bw1">
+                        {{form.bw5Proj}}
+                    </p>
+                </div>
+                <div class="col s2">
+                    <p class="bw" id="bw3">{{avg10}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <p class="bw bw2">Wie würden Sie die Umsetzung der indivuellen Farbwahl bewerten?</p>
+                </div>
+                <div class="col s4">
+                    <p class="range-field bw bw1">
+                        {{form.bw5Farbe}}
+                    </p>
+                </div>
+                <div class="col s2">
+                    <p class="bw" id="bw3">{{avg11}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <p class="bw">Haben Sie Anmerkungen zu diesem Bereich?</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <p class="range-field bw bw1 input-field">
+                        {{form.bw5Aenderung}}
+                    </p>
+                </div>
+                <div class="col s6">
+                    <p class="bw" id="anm2">{{t5}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button class="btn col1" type="submit" name="action" id="submit" method:"post">Abschicken
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    </form>
+    <script src="{%static 'aquarium/js/jquery-3.6.0.js'%}"></script>
+    <script src="{%static 'aquarium/js/materialize.js'%}"></script>
 </body>
 </html>

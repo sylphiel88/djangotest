@@ -22,7 +22,8 @@
     <div class="container">
         <div class="row"></div>
         <div class="row"></div>
-        <div class="row center-align"><h3><span class="asfont">Sehr geehrte Damen und Herren,</span></h3></div>
+        {% ifequal lang 'de' %}
+            <div class="row center-align"><h3><span class="asfont">Sehr geehrte Damen und Herren,</span></h3></div>
         <div class="row"></div>
         <div class="row"></div>
         <div class="row anschreibenwrapper">
@@ -44,5 +45,30 @@
             Herzlichst, Ihr
             <h3 class="asfont">Jan Ihmels</h3>
         </div>
+        {% endifequal %}
+        {% ifequal lang 'en' %}
+        <div class="row center-align"><h3><span class="asfont">Dear Sir or Madam,</span></h3></div>
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row anschreibenwrapper">
+            <p class="asfont1">Why should you to turn to me of all people? Well, apart other things, iI am <span class="asfont2">MOTIVATED</span>. You heard that a lot already? Not the way you'll hear it from me! Since I started this apprenticeship and began to write <span class="asfont2">WEBSITES</span> again, I don't do a lot more. I have aquired new Skills.  For this Page I learnd to integrate <span class="asfont2">DJANGO</span> and I used existing knowledge in <span class="asfont2">JAVASCRIPT</span>, <span class="asfont2">HTML</span> and <span class="asfont2">CSS</span>. In the near future I plan to read and learn new things about <span class="asfont2">REACT.JS</span> tried other object oriented and not object oriented programming languages in university and my free time. My skills with the programing language of the future, <span class="asfont2">PYTHON</span>, are still improving, as well as I restore my long unused knowledge about Java and C#.
+        </div>
+        <div class="row"></row>
+        <div class="row anschreibenwrapper">
+            <p class="asfont1">One thing that sets me apart from others is my <span class="asfont2">ABILITY</span> to learn new things very fast. During my retraining I discovered long lost skills as a <span class="asfont2">TEAMPLAYER</span> and especialy as a <span class="asfont2">LEADING PERSON</span> and I can use my skills in a team. It is quite easy for me to  <span class="asfont2">EXPLAIN</span> things I learned to others.</p>
+        </div>
+        <div class="row"></div>
+        <div class="row anschreibenwrapper">
+            <p class="asfont1">Sounds perfect? It is! So why do I not have a job in the IT Comunity for years and why am i still trying? Well, there are/were some <span class="asfont2">PROBLEMS</span> I want to talk about. I thinks its important to know for a new, potential <span class="asfont2">EMPLOYER</span> what he's in for. I had to fight my ADHS and my mild depression during my time in <span class="asfont2">UNIVERSITY</span>. I created <span class="asfont2">STRATEGIES</span> during my <span class="asfont2">TRAINING</span> as a professional in hearing care, or even before that, to avoid those problems and I am a lot more <span class="asfont2">SATISFIED</span> and more <span class="asfont2">CONCENTRATED</span> now while working.</p>
+        </div>
+        <div class="row"></div>
+        <div class="row anschreibenwrapper">
+            <p class="asfont1">In summary, you can say you will get an employee who quickly grasps new <span class="asfont2">CONCEPTS</span> and is <span class="asfont2">TEAM-CAPABLE</span> and who wants to prove you in a free <span class="asfont2">INTERNSHIP</span>. <span class="asfont2">INTERESSED</span>? You may always call at my phone or write an email to my personal adresses, which you can find in the footer.</p>
+        </div>
+        <div class="row anschreibenwrapper asfont1">
+            Sincerly yours
+            <h3 class="asfont">Jan Ihmels</h3>
+        </div>
+        {% endifequal %}
     </div>
 {% endblock %}

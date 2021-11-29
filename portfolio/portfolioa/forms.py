@@ -6,7 +6,7 @@ class aqbw(forms.Form):
     bw3 = forms.IntegerField(max_value=10, widget=forms.TextInput(attrs={'type':'range', 'min':'1', 'max':'10'}))
     anm = forms.CharField(widget=forms.TextInput(attrs={'class':'white-text'}))
 
-class bewertung(forms.Form):
+class bewertungn(forms.Form):
     bw1Formulierung = forms.IntegerField(max_value=10, widget=forms.TextInput(attrs={'type':'range', 'min':'1', 'max':'10'}))
     bw1Css = forms.IntegerField(max_value=10, widget=forms.TextInput(attrs={'type':'range', 'min':'1', 'max':'10'}))
     bw1Aufbau = forms.IntegerField(max_value=10, widget=forms.TextInput(attrs={'type':'range', 'min':'1', 'max':'10'}))

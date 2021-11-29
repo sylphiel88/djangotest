@@ -1,10 +1,31 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+    <style>
+        .collapsible-header { background-color: {{color2}}; opacity: 0.6; color:{{colorbw}};}
+    </style>
     <div class="container">
-        <div class="row"></div>
         <div class="row center-align">
-            <h3>Ziele und Wünsche</h3>
+                <div id="canvas"></div>
+        </div>
+        <div class="row br">
+            Ziele definiert man im Allgemeinen kurz-, mittel- oder langfristig. Hier möchte ich meine Ziele darstellen und erläutern.
+        </div>
+        <div class="col s6 offset-s3">
+            <ul class="collapsible">
+                <li class="active">
+                    <div class="collapsible-header"><i class="material-icons">filter_1</i>kurzfristige Ziele</div>
+                    <div class="collapsible-body"><span>Mein aktuelles kurzfristiges Ziel ist es meine Ausbildung weiter erfolgreich zu gestalten, die Noten weiter auf einem guten Schnitt zu halten und einen Praktikumsplatz zu finden. Dabei ist es mir wichtig, einen gut passenden Arbeitgeber zu finden.</span></div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_2</i>mittelfristige Ziele</div>
+                    <div class="collapsible-body"><span>Mittelfristig wünsche ich mir eine feste Anstellung im IT-Bereich. Dabei sollte eine gute Work-Life-Balance erreicht werden, um präventiv gegen Burnout gewappnet zu sein. Desweiteren würde ich mich bis dahin auf einen Anwendungsbereich spezialisiert haben und Experte für ein Thema werden.</span></div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_3</i>langfristige Ziele</div>
+                    <div class="collapsible-body"><span>Langfristig wünsche ich mir einen finanziell abgesichtere Zukunft, eine Familie, einen verantwortungsvollen und sicheren Job und weiterhin verbesserte und gute Gesundheit.</span></div>
+                </li>
+            </ul>
         </div>
     </div>
 {% endblock %}

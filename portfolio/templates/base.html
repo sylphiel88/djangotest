@@ -9,16 +9,16 @@
     <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
     <link rel="stylesheet" href="{% static 'css/jquery.fancybox.css' %}">
     <link rel="stylesheet" href="{% static 'css/icon.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Document</title>
 </head>
 <body>
     <style>
         .green {background-color: {{color}} !important;}
         .green2 {background-color: {{color2}} !important;}
-        li:hover {background-color: {{color2}} !important;}
+        .hide-on-med-and-down>li:hover {background-color: {{color2}} !important;}
         .dropdown-content > li:hover {background-color: {{color2}} !important;}
         .button {background-color: {{color}};}
         .footer #button{border:{{color}} 12px solid};
@@ -29,9 +29,9 @@
         body {background-image: url("{%static 'pics/4858794.jpg'%}"); background-repeat: repeat-y; background-size: 100vw 100vh;}
     </style>
     <ul id="dropdown1" class="dropdown-content green white-text">
-        <li><a href="{%url 'anschreiben'%}" class="white-text">Über mich!</a></li>
-        <li><a href="{%url 'werdegang'%}" class="white-text">Werdegang</a></li>
-        <li><a href="{%url 'ziele'%}" class="white-text">Wünsche und Ziele</a></li>
+        <li><a href="{%url 'anschreiben'%}" class="white-text">{% ifequal lang 'de' %}Über mich!{% endifequal %}{% ifequal lang 'en' %}About me!{% endifequal %}</a></li>
+        <li><a href="{% url 'werdegang' %}" class="white-text">{% ifequal lang 'de' %}Werdegang{% endifequal %}{% ifequal lang 'en' %}Career{% endifequal %}</a></li>
+        <li><a href="{%url 'ziele'%}" class="white-text">{% ifequal lang 'de' %}Wünsche und Ziele{% endifequal %}{% ifequal lang 'en' %}Aims and Wishes{% endifequal %}</a></li>
     </ul>
 <!-- fixed navbar (always on top) -->
     <div class="navbar-fixed">
@@ -41,11 +41,10 @@
                     <a href="{% url 'home' %}" class="brand-logo white-text">Jan Ihmels</a>
                     <a href="#" class="sidenav-trigger left white-text" data-target="slide-out"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="#" class="dropdown-trigger white-text" data-target="dropdown1">Das bin ich.<i class="material-icons right white-text">arrow_drop_down</i></a></li>
-                        <li><a href="{% url 'projects' %}" class="white-text">js-Demos</a></li>
+                        <li><a href="#" class="dropdown-trigger white-text" data-target="dropdown1">{% ifequal lang 'de' %}Das bin ich.{% endifequal %}{% ifequal lang 'en' %}That's me!{% endifequal %}<i class="material-icons right white-text">arrow_drop_down</i></a></li><li><a href="{% url 'projects' %}" class="white-text">js-Demos</a></li>
                         <li><a href="{% url 'videos' %}" class="white-text">Videos</a></li>
-                        <li><a data-fancybox data-type="iframe" data-src="{%url 'bewertung'%}" href="javascript:;" class="white-text">Bewerten!</a></li>
-                        <li class="white-text">&nbsp &nbsp Designfarbe: &nbsp <div class="color-picker"><input type="color" id="picker" value="{{color}}" onchange="changeColor(this.value)"></div></li>
+                        <li><a data-fancybox data-type="iframe" data-src="{%url 'bewertung'%}" href="javascript:;" class="white-text">{% ifequal lang 'de' %}Bewerten!{% endifequal %}{% ifequal lang 'en' %}Evaluate!{% endifequal %}</a></li>
+                        <li class="white-text">&nbsp; &nbsp; {% ifequal lang 'de' %}Designfarbe:{% endifequal %}{% ifequal lang 'en' %}UI-Color:{% endifequal %} &nbsp; <div class="color-picker"><input type="color" id="picker" value="{{color}}" onchange="changeColor(this.value)"></div></li>
                     </ul>
                 </div>
             </div>
@@ -53,29 +52,29 @@
     </div>
 <!-- dropdown menu sidebar -->
     <ul id="dropdown2" class="dropdown-content green white-text">
-        <li><a href="{%url 'anschreiben'%}" class="white-text">Über mich!</a></li>
-        <li><a href="{% url 'werdegang' %}" class="white-text">Werdegang</a></li>
-        <li><a href="{%url 'ziele'%}" class="white-text">Wünsche und Ziele</a></li>
+        <li><a href="{%url 'anschreiben'%}" class="white-text">{% ifequal lang 'de' %}Über mich!{% endifequal %}{% ifequal lang 'en' %}About me!{% endifequal %}</a></li>
+        <li><a href="{% url 'werdegang' %}" class="white-text">{% ifequal lang 'de' %}Werdegang{% endifequal %}{% ifequal lang 'en' %}Career{% endifequal %}</a></li>
+        <li><a href="{%url 'ziele'%}" class="white-text">{% ifequal lang 'de' %}Wünsche und Ziele{% endifequal %}{% ifequal lang 'en' %}Aims and Wishes{% endifequal %}</a></li>
     </ul>
 <!-- sidebar for smaller screens -->
     <ul class="sidenav green" id="slide-out">
-        <li><a href="#" class="dropdown-trigger white-text" data-target="dropdown2">Das bin ich<i class="material-icons right white-text">arrow_drop_down</i></a></li>
-        <li><a href="{%url 'projects' %}" class="white-text">js-Demos</a></li>
-        <li><a href="{%url 'videos'%}" class="white-text">Videos</a></li>
-        <li><a href="#" class="white-text">Bewerten!</a></li>
-        <p class="white-text">&nbsp &nbsp &nbsp &nbspDesignfarbe: &nbsp <div class="row center-align color-picker"><input type="color" id="picker" value="{{color}}" onchange="changeColor(this.value)"></div></p>
+        <li><a href="#" class="dropdown-trigger white-text" data-target="dropdown2">{% ifequal lang 'de' %}Das bin ich.{% endifequal %}{% ifequal lang 'en' %}That's me!{% endifequal %}<i class="material-icons right white-text">arrow_drop_down</i></a></li>
+        <li><a href="{% url 'projects' %}" class="white-text">js-Demos</a></li>
+        <li><a href="{% url 'videos' %}" class="white-text">Videos</a></li>
+        <li><a data-fancybox data-type="iframe" data-src="{%url 'bewertung'%}" href="javascript:;" class="white-text">{% ifequal lang 'de' %}Bewerten!{% endifequal %}{% ifequal lang 'en' %}Evaluate!{% endifequal %}</a></li>
+        <p class="white-text">&nbsp; &nbsp; {% ifequal lang 'de' %}Designfarbe:{% endifequal %}{% ifequal lang 'en' %}UI-Color:{% endifequal %} &nbsp; <div class="color-picker"><input type="color" id="picker" value="{{color}}" onchange="changeColor(this.value)"></div></p>
         <div class="row"></div>
         <div class="card green2">
             <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" src="{% static 'pics/jan.jpg' %}">
             </div>
             <div class="card-content white-text">
-                <span class="card-title activator">Bewerbungsbild<i class="material-icons right">more_vert</i></span>
-                <p><a href="{%url 'aquarium'%}"><span class="white-text">Projekt Webseite</a></p>
+                <span class="card-title activator">{% ifequal lang 'de' %}Bewerbungsbild{% endifequal %}{% ifequal lang 'en' %}Application picture{% endifequal %}<i class="material-icons right">more_vert</i></span>
+                <p><a href="{%url 'aquarium'%}"><span class="white-text">{% ifequal lang 'de' %}Projekt Webseite{% endifequal %}{% ifequal lang 'en' %}Project Website{% endifequal %}</a></p>
             </div>
             <div class="card-reveal green2">
                 <span class="card-title white-text">Jan Ihmels<i class="material-icons right">close</i></span>
-                <p class="white-text">Alter: 33 <br/> Ausbildung: IT - FIA <br/> Wohnhaft in: Esslingen <br/><br/> Ihr neuer Mitarbeiter?</p>
+                <p class="white-text">{% ifequal lang 'de' %}Alter{% endifequal %}{% ifequal lang 'en' %}Age{% endifequal %}: 33 <br/> {% ifequal lang 'de' %}Ausbildung{% endifequal %}{% ifequal lang 'en' %}Training in{% endifequal %}: IT - FIA <br/> {% ifequal lang 'de' %}Wohnhaft in{% endifequal %}{% ifequal lang 'en' %}Living in{% endifequal %}: Esslingen <br/><br/> {% ifequal lang 'de' %}Ihr neuer Mitarbeiter?{% endifequal %}{% ifequal lang 'en' %}Your new Co-worker?{% endifequal %}</p>
             </div>
         </div>        
         <div class="card green2">
@@ -83,7 +82,7 @@
                 <img class="activator" src="{% static 'pics/rubix klein.jpg' %}">
             </div>
             <div class="card-content white-text">
-                <span class="card-title activator white-text">Projekt RubixCube<i class="material-icons right">more_vert</i></span>
+                <span class="card-title activator white-text">Project RubixCube<i class="material-icons right">more_vert</i></span>
                 <a data-fancybox="" href="{{rubix.videofile.url}}" data-caption="{{rubix.title}}"><span class="white-text">RubixCube Demo</span></a>
             </div>
             <div class="card-reveal green2">
@@ -225,28 +224,33 @@
         <div id="button"></div>
         <div id="container">
             <div id="cont">
-            <div class="footer_center white-text">
-	            <div class="row">
-                    <div class="col l12 s12">
-                        <h2 class="white-text footer-1">Janana</h2>
-                        <p class="white-text text-darken-3"><h5 class="footer-2">Diese Webseite dient der Vorstellung meiner Person für Firmen, bei denen ich mich bewerben möchte. Es soll meine Fähigkeiten mit HTML, CSS, Django und Java-Script unterstreichen.</h5></p>
+                <div class="footer_center white-text">
+                    <div class="row">
+                        <div class="col l12 s12">
+                            <h2 class="white-text footer-1">Jan Ihmels</h2>
+                            <p class="white-text text-darken-3"><h5 class="footer-2">Diese Webseite dient der Vorstellung meiner Person für Firmen, bei denen ich mich bewerben möchte. Es soll meine Fähigkeiten mit HTML, CSS, Django und Java-Script unterstreichen.</h5></p>
+                        </div>
                     </div>
-                </div>
-                <div class="row footer-copyright">
-                    <div class="container">
-                        © 2021 Jan Ihmels, Hellerweg 51, 73728 Esslingen &nbsp;&nbsp;| &nbsp;&nbsp; enstanden für das Berufsförderwerk Schömberg, Steinbeisstraße 30, 71272 Renningen
-                        <a class="white-text right" href="https://www.bfw-schoemberg.de"> BfW Schömberg</a><br/>
-                        <a class="white-text right" href="{% url 'impressum' %}">Impressum </a>
+                    <div class="row footer-copyright">
+                        <div class="container">
+                            © 2021 Jan Ihmels, Hellerweg 51, 73728 Esslingen &nbsp;&nbsp;| &nbsp;&nbsp; enstanden für das Berufsförderwerk Schömberg, Steinbeisstraße 30, 71272 Renningen
+                            <a class="white-text right" href="https://www.bfw-schoemberg.de"> BfW Schömberg</a><br/>
+                            <a class="white-text right" href="{% url 'impressum' %}">Impressum </a>
+                        </div>
+                        <a href='https://de.freepik.com/fotos/hintergrund' class="white-text">Hintergrund Foto erstellt von rawpixel.com - de.freepik.com</a>
                     </div>
-                    <a href='https://de.freepik.com/fotos/hintergrund' class="white-text">Hintergrund Foto erstellt von rawpixel.com - de.freepik.com</a>
+                    <div class="row footer-copyright"></div>
                 </div>
-                <div class="row footer-copyright"></div>
             </div>
         </div>
+    </div>
+    {% load static %}
     <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-    <script src="{% static 'js/materialize.js' %}"></script>
     <script src="{% static 'js/jquery.fancybox.js' %}"></script>
+    <script src="{% static 'js/materialize.js' %}"></script>
+    {% if zs %}
+        <script type="module" src="{% static 'js/3js_ziele.js' %}"</script>
+    {% endif %}
     <script src="{% static 'js/start.js' %}"></script>
-    </section>
 </body>
 </html>
